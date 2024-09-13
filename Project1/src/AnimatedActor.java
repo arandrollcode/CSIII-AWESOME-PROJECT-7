@@ -1,28 +1,20 @@
-import mayflower.*;
+import mayflower.Timer;
 
-public class AnimatedActor extends GravityActor
-{
-    private Animation animation;
-    private Timer animationTimer;
-    
-    public AnimatedActor()
-    {
-    }
+public class AnimatedActor extends GravityActor {
+   private Animation animation;
+   private Timer animationTimer = new Timer(1000);
 
-    public void setAnimation(Animation a) {
-        animation = a;
-        animationTimer = new Timer(1000);
-    }
-    
-    public void act() {
-        if (animationTimer == null) return;
-        
-        if (animationTimer.isDone()) {
-            animationTimer.reset();
-            MayflowerImage nextFrame = animation.getNextFrame();
-            setImage(nextFrame);
-        }
-        
-        super.act();
-    }
+   public void setAnimation(Animation a) {
+      this.animation = a;
+      this.animationTimer = new Timer(a.getFrameRate());
+   }
+
+   public void act() {
+      super.act();
+      if (this.animation != null && this.animationTimer.isDone()) {
+         this.animationTimer.reset();
+         this.setImage(this.animation.getNextFrame());
+      }
+
+   }
 }
