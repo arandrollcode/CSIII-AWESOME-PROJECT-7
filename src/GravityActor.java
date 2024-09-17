@@ -1,4 +1,4 @@
-import mayflower.Actor;
+import mayflower.*;
 
 public class GravityActor extends Actor {
    private double yVelocity = 0.0D;

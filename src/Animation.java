@@ -1,4 +1,4 @@
-import mayflower.MayflowerImage;
+import mayflower.*;
 
 public class Animation {
    private MayflowerImage[] frames;

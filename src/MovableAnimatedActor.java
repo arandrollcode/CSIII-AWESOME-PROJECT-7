@@ -1,4 +1,4 @@
-import mayflower.Mayflower;
+import mayflower.*;
 
 public class MovableAnimatedActor extends AnimatedActor {
    private Animation walkRight, walkLeft, idleRight, idleLeft, fallRight, fallLeft;

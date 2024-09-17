@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import mayflower.Actor;
+import java.util.*;
+import mayflower.*;
 
 public class Block extends Actor {
    private static ArrayList<Block> blocks = new ArrayList();

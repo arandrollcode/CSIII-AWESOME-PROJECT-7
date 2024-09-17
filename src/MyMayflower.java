@@ -1,5 +1,4 @@
-import mayflower.Mayflower;
-import mayflower.World;
+import mayflower.*;
 
 public class MyMayflower extends Mayflower {
    public MyMayflower() {

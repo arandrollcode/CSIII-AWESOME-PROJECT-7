@@ -1,10 +1,5 @@
 public class Cat extends MovableAnimatedActor {
-    private Animation walkRight;
-    private Animation walkLeft;
-    private Animation idleRight;
-    private Animation idleLeft;
-    private Animation fallRight;
-    private Animation fallLeft;
+    private Animation walkRight, walkLeft, idleRight, idleLeft, fallRight, fallLeft;
  
     public Cat() {
        String[] frames = new String[10];

@@ -1,4 +1,4 @@
-import mayflower.Timer;
+import mayflower.*;
 
 public class AnimatedActor extends GravityActor {
    private Animation animation;
