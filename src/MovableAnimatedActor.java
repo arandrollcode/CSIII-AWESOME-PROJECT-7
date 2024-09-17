@@ -24,28 +24,28 @@ public class MovableAnimatedActor extends AnimatedActor {
       int w = getWidth();
       int h = getHeight();
       int speed = 1;
-      if (Mayflower.isKeyDown(39) && x + w < 800) {
-         setLocation((double)(x + speed), (double)y);
+      if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT) && x + w < 800) {
+         setLocation((double) (x + speed), (double) y);
          newAction = "walkRight";
          direction = "right";
          if (isBlocked()) {
-            setLocation((double)(x - speed), (double)y);
+            setLocation((double) (x - speed), (double) y);
          }
-      } else if (Mayflower.isKeyDown(37) && x > 0) {
-         setLocation((double)(x - speed), (double)y);
+      } else if (Mayflower.isKeyDown(Keyboard.KEY_LEFT) && x > 0) {
+         setLocation((double) (x - speed), (double) y);
          newAction = "walkLeft";
          direction = "left";
          if (isBlocked()) {
-            setLocation((double)(x + speed), (double)y);
+            setLocation((double) (x + speed), (double) y);
          }
-      } else if (Mayflower.isKeyDown(38) && y > 0) {
+      } else if (Mayflower.isKeyDown(Keyboard.KEY_UP) && y > 0) {
          if (getYVelocity() == 0.0D) {
             setYVelocity(-10.0D);
          }
-      } else if (Mayflower.isKeyDown(40) && y + h < 600) {
-         setLocation((double)x, (double)(y + speed));
+      } else if (Mayflower.isKeyDown(Keyboard.KEY_DOWN) && y + h < 600) {
+         setLocation((double) x, (double) (y + speed));
          if (isBlocked()) {
-            setLocation((double)x, (double)(y - speed));
+            setLocation((double) x, (double) (y - speed));
          }
       } else if (direction != null && !isFalling()) {
          if (direction.equals("left")) {
