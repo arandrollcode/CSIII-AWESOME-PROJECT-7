@@ -3,7 +3,7 @@ import mayflower.World;
 
 public class MyMayflower extends Mayflower {
    public MyMayflower() {
-      super("Lab 4", 800, 600);
+      super("PROJECT", 800, 600);
    }
 
    public void init() {
