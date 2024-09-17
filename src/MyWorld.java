@@ -6,11 +6,14 @@ public class MyWorld extends World {
 
    public MyWorld() {
       Mayflower.showBounds(true);
-      this.setBackground("src/img/BG/BG.png");
-      this.cat = new Cat();
-      this.addObject(this.cat, 400, 100);
-      this.addObject(new Block(), 400, 500);
-      this.addObject(new Block(), 528, 372);
+      setBackground("src/img/BG/BG.png");
+      cat = new Cat();
+      addObject(cat, 150, 350);
+      addObject(new Block(cat), 100, 500);
+      addObject(new Block(cat), 228, 372);
+      addObject(new Block(cat), 400, 250);
+      addObject(new Block(cat), 500, 100);
+      
    }
 
    public void act() {
