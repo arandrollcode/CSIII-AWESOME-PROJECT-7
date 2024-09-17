@@ -33,6 +33,7 @@ public class GravityActor extends Actor {
 
       while(this.isTouching(Block.class)) {
          this.setLocation((double)this.getX(), (double)(this.getY() - 1));
+         yVelocity = 0;
       }
 
       return !output;

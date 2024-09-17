@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 import mayflower.Actor;
+import mayflower.MayflowerImage;
 
 public class Block extends Actor {
    private MovableAnimatedActor main;
 
    public Block(MovableAnimatedActor main) {
-      setImage("src/img/Tiles/2.png");
+      MayflowerImage block = new MayflowerImage("src/img/Tiles/2.png");
+      block.scale(100, 100);
+      setImage(block);
+      
       this.main = main;
    }
 
