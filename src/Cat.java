@@ -4,7 +4,7 @@ public class Cat extends MovableAnimatedActor {
    public Cat() {
       String[] frames = new String[10];
 
-      for (int i = 1; i <= 10; ++i) {
+      for (int i = 1; i <= 10; i++) {
          frames[i - 1] = "src/img/cat/Walk (" + i + ").png";
       }
 
@@ -16,7 +16,7 @@ public class Cat extends MovableAnimatedActor {
       walkLeft.mirrorHorizontally();
       walkLeft.setBounds(28, 5, 54, 80);
 
-      for (int i = 1; i <= 10; ++i) {
+      for (int i = 1; i <= 10; i++) {
          frames[i - 1] = "src/img/cat/Idle (" + i + ").png";
       }
 
@@ -29,7 +29,7 @@ public class Cat extends MovableAnimatedActor {
       idleLeft.setBounds(27, 5, 54, 80);
       String[] fallFrames = new String[8];
 
-      for (int i = 1; i <= 8; ++i) {
+      for (int i = 1; i <= 8; i++) {
          fallFrames[i - 1] = "src/img/cat/Fall (" + i + ").png";
       }
 

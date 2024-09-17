@@ -1,14 +1,23 @@
 import mayflower.*;
 
 public class GravityActor extends Actor {
-   private double yVelocity = 0.0D;
+   private double yVelocity;
+   private boolean pastLimit;
 
    public void act() {
-      yVelocity += 0.2D;
+      yVelocity += 0.2;
       setLocation((double) getX(), (double) getY() + yVelocity);
       if (isBlocked()) {
-         yVelocity = 0.0D;
+         yVelocity = 0.0;
          setLocation((double) getX(), (double) getY() - yVelocity);
+      }
+      pastLimit = false;
+      if (getY() < 50) {
+         setLocation(getX(), getY() - yVelocity);
+         pastLimit = true;
+      } else if (getY() > 450) {
+         setLocation(getX(), (int) (getY() - yVelocity - 1));
+         pastLimit = true;
       }
 
    }
@@ -34,5 +43,9 @@ public class GravityActor extends Actor {
 
    public void setYVelocity(double yV) {
       yVelocity = yV;
+   }
+
+   public boolean isPastLimit() {
+      return pastLimit;
    }
 }
