@@ -4,35 +4,35 @@ public class GravityActor extends Actor {
    private double yVelocity = 0.0D;
 
    public void act() {
-      this.yVelocity += 0.2D;
-      this.setLocation((double)this.getX(), (double)this.getY() + this.yVelocity);
-      if (this.isBlocked()) {
-         this.yVelocity = 0.0D;
-         this.setLocation((double)this.getX(), (double)this.getY() - this.yVelocity);
+      yVelocity += 0.2D;
+      setLocation((double)getX(), (double)getY() + yVelocity);
+      if (isBlocked()) {
+         yVelocity = 0.0D;
+         setLocation((double)getX(), (double)getY() - yVelocity);
       }
 
    }
 
    public boolean isBlocked() {
-      return this.isTouching(Block.class);
+      return isTouching(Block.class);
    }
 
    public boolean isFalling() {
-      this.setLocation((double)this.getX(), (double)(this.getY() + 1));
-      boolean output = this.isTouching(Block.class);
+      setLocation((double)getX(), (double)(getY() + 1));
+      boolean output = isTouching(Block.class);
 
-      while(this.isTouching(Block.class)) {
-         this.setLocation((double)this.getX(), (double)(this.getY() - 1));
+      while(isTouching(Block.class)) {
+         setLocation((double)getX(), (double)(getY() - 1));
       }
 
       return !output;
    }
 
    public double getYVelocity() {
-      return this.yVelocity;
+      return yVelocity;
    }
 
    public void setYVelocity(double yV) {
-      this.yVelocity = yV;
+      yVelocity = yV;
    }
 }

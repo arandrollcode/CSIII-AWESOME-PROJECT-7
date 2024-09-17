@@ -5,7 +5,7 @@ public class Block extends Actor {
    private static ArrayList<Block> blocks = new ArrayList();
 
    public Block() {
-      this.setImage("src/img/Tiles/2.png");
+      setImage("src/img/Tiles/2.png");
    }
 
    public void act() {

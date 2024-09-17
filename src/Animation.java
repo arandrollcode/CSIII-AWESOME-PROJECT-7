@@ -13,44 +13,44 @@ public class Animation {
       }
 
       this.frameRate = frameRate;
-      this.currentFrame = 0;
+      currentFrame = 0;
    }
 
    public int getFrameRate() {
-      return this.frameRate;
+      return frameRate;
    }
 
    public MayflowerImage getNextFrame() {
-      MayflowerImage nextFrame = this.frames[this.currentFrame];
-      ++this.currentFrame;
-      this.currentFrame %= this.frames.length;
+      MayflowerImage nextFrame = frames[currentFrame];
+      ++currentFrame;
+      currentFrame %= frames.length;
       return nextFrame;
    }
 
    public void scale(int w, int h) {
-      for(int i = 0; i < this.frames.length; ++i) {
-         this.frames[i].scale(w, h);
+      for(int i = 0; i < frames.length; ++i) {
+         frames[i].scale(w, h);
       }
 
    }
 
    public void setTransparency(int percent) {
-      for(int i = 0; i < this.frames.length; ++i) {
-         this.frames[i].setTransparency(percent);
+      for(int i = 0; i < frames.length; ++i) {
+         frames[i].setTransparency(percent);
       }
 
    }
 
    public void mirrorHorizontally() {
-      for(int i = 0; i < this.frames.length; ++i) {
-         this.frames[i].mirrorHorizontally();
+      for(int i = 0; i < frames.length; ++i) {
+         frames[i].mirrorHorizontally();
       }
 
    }
 
    public void setBounds(int x, int y, int w, int h) {
-      for(int i = 0; i < this.frames.length; ++i) {
-         this.frames[i].crop(x, y, w, h);
+      for(int i = 0; i < frames.length; ++i) {
+         frames[i].crop(x, y, w, h);
       }
 
    }
