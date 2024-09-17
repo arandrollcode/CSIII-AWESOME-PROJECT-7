@@ -36,6 +36,10 @@ public class MovableAnimatedActor extends AnimatedActor {
          if (this.isBlocked()) {
             this.setLocation((double)(x - speed), (double)y);
          }
+         if (this.falling) { // if falling while key pressed down
+            newAction = "";
+            this.direction = "right";
+         }
       } else if (Mayflower.isKeyDown(37) && x > 0) {
          this.setLocation((double)(x - speed), (double)y);
          newAction = "walkLeft";
@@ -43,6 +47,11 @@ public class MovableAnimatedActor extends AnimatedActor {
          if (this.isBlocked()) {
             this.setLocation((double)(x + speed), (double)y);
          }
+         if (this.falling) {  // if falling while key pressed down
+            newAction = "";
+            this.direction = "right";
+         }
+         this.direction = "left";
       } else if (Mayflower.isKeyDown(38) && y > 0) {
          if (this.getYVelocity() == 0.0D) {
             this.setYVelocity(-10.0D);
@@ -61,23 +70,16 @@ public class MovableAnimatedActor extends AnimatedActor {
             newAction = "idleRight";
          }
       } else if (this.falling) {
-         newAction = "";
+         newAction = "left";
       }
 
       if (newAction != null && !newAction.equals(this.currentAction)) {
-         if (newAction.equals("idleRight")) {
-            this.setAnimation(this.idleRight);
-         }
-
-         if (newAction.equals("idleLeft")) {
-            this.setAnimation(this.idleLeft);
-         }
-
-         if (newAction.equals("walkRight")) {
+         
+         if (newAction.equals("walkRight") && !this.falling) {
             this.setAnimation(this.walkRight);
          }
 
-         if (newAction.equals("walkLeft")) {
+         if (newAction.equals("walkLeft") && !this.falling) {
             this.setAnimation(this.walkLeft);
          }
 
@@ -89,6 +91,14 @@ public class MovableAnimatedActor extends AnimatedActor {
             if (this.direction.equals("right")) {
                this.setAnimation(this.fallRight);
             }
+         }
+
+         if (newAction.equals("idleRight")) {
+            this.setAnimation(this.idleRight);
+         }
+
+         if (newAction.equals("idleLeft")) {
+            this.setAnimation(this.idleLeft);
          }
 
          this.currentAction = newAction;
