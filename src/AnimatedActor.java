@@ -15,6 +15,5 @@ public class AnimatedActor extends GravityActor {
          animationTimer.reset();
          setImage(animation.getNextFrame());
       }
-
    }
 }

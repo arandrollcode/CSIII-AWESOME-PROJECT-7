@@ -8,7 +8,7 @@ public class Animation {
    public Animation(int frameRate, String[] frames) {
       this.frames = new MayflowerImage[frames.length];
 
-      for(int i = 0; i < frames.length; ++i) {
+      for (int i = 0; i < frames.length; ++i) {
          this.frames[i] = new MayflowerImage(frames[i]);
       }
 
@@ -28,30 +28,26 @@ public class Animation {
    }
 
    public void scale(int w, int h) {
-      for(int i = 0; i < frames.length; ++i) {
+      for (int i = 0; i < frames.length; ++i) {
          frames[i].scale(w, h);
       }
-
    }
 
    public void setTransparency(int percent) {
-      for(int i = 0; i < frames.length; ++i) {
+      for (int i = 0; i < frames.length; ++i) {
          frames[i].setTransparency(percent);
       }
-
    }
 
    public void mirrorHorizontally() {
-      for(int i = 0; i < frames.length; ++i) {
+      for (int i = 0; i < frames.length; ++i) {
          frames[i].mirrorHorizontally();
       }
-
    }
 
    public void setBounds(int x, int y, int w, int h) {
-      for(int i = 0; i < frames.length; ++i) {
+      for (int i = 0; i < frames.length; ++i) {
          frames[i].crop(x, y, w, h);
       }
-
    }
 }
