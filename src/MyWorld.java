@@ -14,6 +14,7 @@ public class MyWorld extends World {
       addObject(new Block(cat), 400, 250);
       addObject(new Block(cat), 500, 100);
       
+      Mayflower.playMusic("src/sounds/music/music.mp3");
    }
 
    public void act() {

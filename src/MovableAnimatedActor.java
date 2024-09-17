@@ -36,6 +36,14 @@ public class MovableAnimatedActor extends AnimatedActor {
          if (isBlocked()) {
             setLocation((double)(x - speed), (double)y);
          }
+         if (this.falling) { // if falling while key pressed down
+            newAction = "";
+            this.direction = "right";
+         }
+         if (this.falling) { // if falling while key pressed down
+            newAction = "";
+            this.direction = "right";
+         }
       } else if (Mayflower.isKeyDown(37) && x > 0) {
          setLocation((double)(x - speed), (double)y);
          newAction = "walkLeft";
@@ -43,9 +51,14 @@ public class MovableAnimatedActor extends AnimatedActor {
          if (isBlocked()) {
             setLocation((double)(x + speed), (double)y);
          }
-      } else if (Mayflower.isKeyPressed(38) && y > 0) {
-         if (getYVelocity() == 0.0) {
-            setYVelocity(-10.0);
+         if (this.falling) {  // if falling while key pressed down
+            newAction = "";
+            this.direction = "right";
+         }
+         this.direction = "left";
+      } else if (Mayflower.isKeyDown(38) && y > 0) {
+         if (this.getYVelocity() == 0.0D) {
+            this.setYVelocity(-10.0D);
          }
       } else if (Mayflower.isKeyDown(40) && y + h < 600) {
          setLocation((double)x, (double)(y + speed));
@@ -60,25 +73,18 @@ public class MovableAnimatedActor extends AnimatedActor {
          if (direction.equals("right")) {
             newAction = "idleRight";
          }
-      } else if (falling) {
-         newAction = "";
+      } else if (this.falling) {
+         newAction = "left";
       }
 
-      if (newAction != null && !newAction.equals(currentAction)) {
-         if (newAction.equals("idleRight")) {
-            setAnimation(idleRight);
+      if (newAction != null && !newAction.equals(this.currentAction)) {
+         
+         if (newAction.equals("walkRight") && !this.falling) {
+            this.setAnimation(this.walkRight);
          }
 
-         if (newAction.equals("idleLeft")) {
-            setAnimation(idleLeft);
-         }
-
-         if (newAction.equals("walkRight")) {
-            setAnimation(walkRight);
-         }
-
-         if (newAction.equals("walkLeft")) {
-            setAnimation(walkLeft);
+         if (newAction.equals("walkLeft") && !this.falling) {
+            this.setAnimation(this.walkLeft);
          }
 
          if (falling) {
@@ -86,12 +92,20 @@ public class MovableAnimatedActor extends AnimatedActor {
                setAnimation(fallLeft);
             }
 
-            if (direction.equals("right")) {
-               setAnimation(fallRight);
+            if (this.direction.equals("right")) {
+               this.setAnimation(this.fallRight);
             }
          }
 
-         currentAction = newAction;
+         if (newAction.equals("idleRight")) {
+            this.setAnimation(this.idleRight);
+         }
+
+         if (newAction.equals("idleLeft")) {
+            this.setAnimation(this.idleLeft);
+         }
+
+         this.currentAction = newAction;
       }
 
    }
