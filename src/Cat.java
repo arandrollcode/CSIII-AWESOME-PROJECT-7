@@ -7,7 +7,6 @@ public class Cat extends MovableAnimatedActor {
       for (int i = 1; i <= 10; i++) {
          frames[i - 1] = "src/img/cat/Walk (" + i + ").png";
       }
-
       walkRight = new Animation(50000000, frames);
       walkRight.scale(100, 87);
       walkRight.setBounds(18, 5, 54, 80);
@@ -19,7 +18,6 @@ public class Cat extends MovableAnimatedActor {
       for (int i = 1; i <= 10; i++) {
          frames[i - 1] = "src/img/cat/Idle (" + i + ").png";
       }
-
       idleRight = new Animation(50000000, frames);
       idleRight.scale(100, 87);
       idleRight.setBounds(18, 5, 54, 80);
@@ -27,12 +25,11 @@ public class Cat extends MovableAnimatedActor {
       idleLeft.scale(100, 87);
       idleLeft.mirrorHorizontally();
       idleLeft.setBounds(27, 5, 54, 80);
-      String[] fallFrames = new String[8];
 
+      String[] fallFrames = new String[8];
       for (int i = 1; i <= 8; i++) {
          fallFrames[i - 1] = "src/img/cat/Fall (" + i + ").png";
       }
-
       fallRight = new Animation(50000000, fallFrames);
       fallRight.scale(100, 87);
       fallRight.setBounds(12, 2, 55, 82);
@@ -40,6 +37,7 @@ public class Cat extends MovableAnimatedActor {
       fallLeft.scale(100, 87);
       fallLeft.mirrorHorizontally();
       fallLeft.setBounds(32, 2, 55, 82);
+
       setWalkRightAnimation(walkRight);
       setWalkLeftAnimation(walkLeft);
       setIdleRightAnimation(idleRight);

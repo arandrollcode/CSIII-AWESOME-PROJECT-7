@@ -8,6 +8,5 @@ public class MyMayflower extends Mayflower {
    public void init() {
       Mayflower.setFullScreen(false);
       Mayflower.setWorld(new StartScreen());
-
    }
 }
