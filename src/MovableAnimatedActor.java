@@ -1,12 +1,7 @@
-import mayflower.Mayflower;
+import mayflower.*;
 
 public class MovableAnimatedActor extends AnimatedActor {
-   private Animation walkRight;
-   private Animation walkLeft;
-   private Animation idleRight;
-   private Animation idleLeft;
-   private Animation fallRight;
-   private Animation fallLeft;
+   private Animation walkRight, walkLeft, idleRight, idleLeft, fallRight, fallLeft;
    private String currentAction;
    private String direction;
    private boolean falling;
@@ -30,40 +25,40 @@ public class MovableAnimatedActor extends AnimatedActor {
       int h = getHeight();
       int speed = 1;
       if (Mayflower.isKeyDown(39) && x + w < 800) {
-         setLocation((double)(x + speed), (double)y);
+         setLocation((double) (x + speed), (double) y);
          newAction = "walkRight";
          direction = "right";
          if (isBlocked()) {
-            setLocation((double)(x - speed), (double)y);
+            setLocation((double) (x - speed), (double) y);
          }
-         if (this.falling) { // if falling while key pressed down
+         if (falling) { // if falling while key pressed down
             newAction = "";
-            this.direction = "right";
+            direction = "right";
          }
-         if (this.falling) { // if falling while key pressed down
+         if (falling) { // if falling while key pressed down
             newAction = "";
-            this.direction = "right";
+            direction = "right";
          }
       } else if (Mayflower.isKeyDown(37) && x > 0) {
-         setLocation((double)(x - speed), (double)y);
+         setLocation((double) (x - speed), (double) y);
          newAction = "walkLeft";
          direction = "left";
          if (isBlocked()) {
-            setLocation((double)(x + speed), (double)y);
+            setLocation((double) (x + speed), (double) y);
          }
-         if (this.falling) {  // if falling while key pressed down
+         if (falling) { // if falling while key pressed down
             newAction = "";
-            this.direction = "right";
+            direction = "right";
          }
-         this.direction = "left";
+         direction = "left";
       } else if (Mayflower.isKeyDown(38) && y > 0) {
-         if (this.getYVelocity() == 0.0D) {
-            this.setYVelocity(-10.0D);
+         if (getYVelocity() == 0.0D) {
+            setYVelocity(-10.0D);
          }
       } else if (Mayflower.isKeyDown(40) && y + h < 600) {
-         setLocation((double)x, (double)(y + speed));
+         setLocation((double) x, (double) (y + speed));
          if (isBlocked()) {
-            setLocation((double)x, (double)(y - speed));
+            setLocation((double) x, (double) (y - speed));
          }
       } else if (direction != null && !isFalling()) {
          if (direction.equals("left")) {
@@ -73,18 +68,18 @@ public class MovableAnimatedActor extends AnimatedActor {
          if (direction.equals("right")) {
             newAction = "idleRight";
          }
-      } else if (this.falling) {
+      } else if (falling) {
          newAction = "left";
       }
 
-      if (newAction != null && !newAction.equals(this.currentAction)) {
-         
-         if (newAction.equals("walkRight") && !this.falling) {
-            this.setAnimation(this.walkRight);
+      if (newAction != null && !newAction.equals(currentAction)) {
+
+         if (newAction.equals("walkRight") && !falling) {
+            setAnimation(walkRight);
          }
 
-         if (newAction.equals("walkLeft") && !this.falling) {
-            this.setAnimation(this.walkLeft);
+         if (newAction.equals("walkLeft") && !falling) {
+            setAnimation(walkLeft);
          }
 
          if (falling) {
@@ -92,20 +87,20 @@ public class MovableAnimatedActor extends AnimatedActor {
                setAnimation(fallLeft);
             }
 
-            if (this.direction.equals("right")) {
-               this.setAnimation(this.fallRight);
+            if (direction.equals("right")) {
+               setAnimation(fallRight);
             }
          }
 
          if (newAction.equals("idleRight")) {
-            this.setAnimation(this.idleRight);
+            setAnimation(idleRight);
          }
 
          if (newAction.equals("idleLeft")) {
-            this.setAnimation(this.idleLeft);
+            setAnimation(idleLeft);
          }
 
-         this.currentAction = newAction;
+         currentAction = newAction;
       }
 
    }
