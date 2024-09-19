@@ -9,7 +9,7 @@ public class StartScreen extends World {
 
     public void act() {
         if (Mayflower.isKeyDown(Keyboard.KEY_ENTER)) {
-            Mayflower.setWorld(new MyWorld());
+            Mayflower.setWorld(new World1());
         }
     }
 }

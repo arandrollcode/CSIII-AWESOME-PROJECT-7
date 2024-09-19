@@ -1,7 +1,7 @@
 import mayflower.*;
 
-public class MyWorld extends World {
-   public MyWorld() {
+public class World1 extends World {
+   public World1() {
       Mayflower.showBounds(true);
       setBackground("src/img/BG/BG.png");
       Cat cat = new Cat();
