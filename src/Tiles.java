@@ -1,3 +1,3 @@
 public enum Tiles {
-    BLOCK
+    BLOCK, BLOCKLEFT, BLOCKRIGHT
 }

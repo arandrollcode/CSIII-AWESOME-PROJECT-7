@@ -10,29 +10,33 @@ public class MyWorld extends World {
       setBackground("src/img/BG/BG.png");
 
       tiles = new Tiles[20][8];
+
       for (int i = 0; i < tiles[0].length; i++) {
          tiles[19][i] = Tiles.BLOCK;
       }
-      tiles[18][0] = Tiles.BLOCK;
-      tiles[15][3] = Tiles.BLOCK;
-      tiles[12][6] = Tiles.BLOCK;
-      tiles[4][1] = Tiles.BLOCK;
-      tiles[18][7] = Tiles.BLOCK;
-      tiles[16][5] = Tiles.BLOCK;
-      tiles[14][3] = Tiles.BLOCK;
-      tiles[12][2] = Tiles.BLOCK;
-      tiles[10][5] = Tiles.BLOCK;
-      tiles[13][1] = Tiles.BLOCK;
-      tiles[9][3] = Tiles.BLOCK;
-      
 
+      tiles[18][(int)(Math.random() * 8)] = Tiles.BLOCKLEFT;
+
+      for (int i = tiles.length - 3; i >= 0; i--) {
+         int blockLocation;
+         do {
+            blockLocation = (int)(Math.random() * 6 + 1);
+         } while (tiles[i + 1][blockLocation] == Tiles.BLOCKLEFT || tiles[i + 1][blockLocation - 1] == Tiles.BLOCKLEFT || tiles[i + 1][blockLocation + 1] == Tiles.BLOCKLEFT || (tiles[i + 2][blockLocation] == Tiles.BLOCKLEFT && i < 17));
+         tiles[i][blockLocation] = Tiles.BLOCKLEFT;
+      }
+      
+      
       
       cat = new Cat();
-      addObject(cat, 150, 350);
+      addObject(cat, 100, 500);
       for (int i = 0; i < tiles.length; i++) {
          for (int j = 0; j < tiles[0].length; j++) {
             if (tiles[i][j] == Tiles.BLOCK) {
-               addObject(new Block(cat), j * 100, (i * 100) - 1400);
+                  addObject(new Block(cat), j * 100, (i * 100) - 1400);
+            } else if (tiles[i][j] == Tiles.BLOCKLEFT) {
+               tiles[i][j + 1] = Tiles.BLOCKRIGHT;
+               addObject(new BlockLeft(cat), j * 100, (i * 100) - 1400);
+               addObject(new BlockRight(cat), (j + 1) * 100, (i * 100) - 1400);
             }
          }
       }
@@ -40,5 +44,9 @@ public class MyWorld extends World {
    }
 
    public void act() {
+      if (cat.isDead()) {
+         removeObject(cat);
+         // Switch to game over screen
+      }
    }
 }

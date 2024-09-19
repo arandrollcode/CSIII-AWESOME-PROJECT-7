@@ -10,6 +10,7 @@ public class MovableAnimatedActor extends AnimatedActor {
    private String currentAction;
    private String direction;
    private boolean falling;
+   private boolean dead;
 
    public void act() {
       super.act();
@@ -45,7 +46,7 @@ public class MovableAnimatedActor extends AnimatedActor {
          }
       } else if (Mayflower.isKeyPressed(38) && y > 0) {
          if (getYVelocity() == 0.0) {
-            setYVelocity(-10.0);
+            setYVelocity(-10);
          }
       } else if (Mayflower.isKeyDown(40) && y + h < 600) {
          setLocation((double)x, (double)(y + speed));
@@ -92,6 +93,10 @@ public class MovableAnimatedActor extends AnimatedActor {
          }
 
          currentAction = newAction;
+
+         if (getY() + 87 > 600) {
+            dead = true;
+         }
       }
 
    }
@@ -122,5 +127,9 @@ public class MovableAnimatedActor extends AnimatedActor {
 
    public void setFallLeftAnimation(Animation a) {
       fallLeft = a;
+   }
+
+   public boolean isDead() {
+      return dead;
    }
 }

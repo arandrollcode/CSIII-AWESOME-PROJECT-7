@@ -56,5 +56,7 @@ public class Cat extends MovableAnimatedActor {
     public void act() {
        super.act();
     }
+
+    
  }
  

@@ -15,24 +15,25 @@ public class GravityActor extends Actor {
       if (getY() < 50) {
          setLocation(getX(), getY() - yVelocity);
          pastLimit = true;
-      } else if (getY() > 450) {
-         setLocation(getX(), (int)(getY() - yVelocity - 1));
-         pastLimit = true;
-      }
+      } 
+      // else if (getY() > 450) {
+      //    setLocation(getX(), (int)(getY() - yVelocity - 1));
+      //    pastLimit = true;
+      // }
       
 
    }
 
    public boolean isBlocked() {
-      return this.isTouching(Block.class);
+      return isTouching(Platform.class);
    }
 
    public boolean isFalling() {
-      this.setLocation((double)this.getX(), (double)(this.getY() + 1));
-      boolean output = this.isTouching(Block.class);
+      setLocation((double)getX(), (double)(getY() + 1));
+      boolean output = isTouching(Platform.class);
 
-      while(this.isTouching(Block.class)) {
-         this.setLocation((double)this.getX(), (double)(this.getY() - 1));
+      while(isTouching(Platform.class)) {
+         setLocation((double)getX(), (double)(getY() - 1));
          yVelocity = 0;
       }
 
@@ -40,11 +41,11 @@ public class GravityActor extends Actor {
    }
 
    public double getYVelocity() {
-      return this.yVelocity;
+      return yVelocity;
    }
 
    public void setYVelocity(double yV) {
-      this.yVelocity = yV;
+      yVelocity = yV;
    }
 
    public boolean isPastLimit() {
