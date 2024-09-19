@@ -1,16 +1,16 @@
-import mayflower.Actor;
+import mayflower.*;
 
 public class Block extends Actor {
-   private MovableAnimatedActor main;
+   private MovableAnimatedActor player;
 
-   public Block(MovableAnimatedActor main) {
+   public Block() {
       setImage("src/img/Tiles/2.png");
-      this.main = main;
+      player = StartScreen.getPlayer();
    }
 
    public void act() {
-      if (main.isPastLimit()) {
-         setLocation(getX(), getY() - main.getYVelocity());
+      if (player.isPastLimit()) {
+         setLocation(getX(), getY() - player.getYVelocity());
       }
    }
 
