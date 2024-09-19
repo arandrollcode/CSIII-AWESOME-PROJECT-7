@@ -1,4 +1,4 @@
-import mayflower.Actor;
+import mayflower.*;
 
 public class Block extends Actor {
    private MovableAnimatedActor main;

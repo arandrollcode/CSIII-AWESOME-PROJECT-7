@@ -1,7 +1,26 @@
+import mayflower.*;
+
 public class Cat extends MovableAnimatedActor {
    private Animation walkRight, walkLeft, idleRight, idleLeft, fallRight, fallLeft;
+   private int score, lives;
 
    public Cat() {
+      initializeAnimations();
+      score = 0;
+      lives = 3;
+   }
+
+   private void updateText() {
+      World w = getWorld();
+      w.removeText(10, 30);
+      w.showText("Score: " + score + " | Lives: " + lives, 10, 30, Color.BLACK);
+   }
+
+   public void increaseScore(int amount) {
+      score += amount;
+   }
+
+   private void initializeAnimations() {
       String[] frames = new String[10];
 
       for (int i = 1; i <= 10; i++) {
@@ -48,5 +67,6 @@ public class Cat extends MovableAnimatedActor {
 
    public void act() {
       super.act();
+      updateText();
    }
 }
