@@ -3,7 +3,7 @@ import mayflower.*;
 public class MyWorld extends World {
    public MyWorld() {
       Mayflower.showBounds(true);
-      setBackground("src/img/BG/BG.png");
+      setBackground("src/img/BG/BG2.png");
       Cat cat = new Cat();
       addObject(cat, 150, 350);
       addObject(new Block(cat), 100, 500);
