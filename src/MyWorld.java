@@ -32,7 +32,7 @@ public class MyWorld extends World {
       for (int i = 0; i < tiles.length; i++) {
          for (int j = 0; j < tiles[0].length; j++) {
             if (tiles[i][j] == Tiles.BLOCK) {
-                  addObject(new Block(cat), j * 100, (i * 100) - 1400);
+                  addObject(new Block(), j * 100, (i * 100) - 1400);
             } else if (tiles[i][j] == Tiles.BLOCKLEFT) {
                tiles[i][j + 1] = Tiles.BLOCKRIGHT;
                addObject(new BlockLeft(cat), j * 100, (i * 100) - 1400);
