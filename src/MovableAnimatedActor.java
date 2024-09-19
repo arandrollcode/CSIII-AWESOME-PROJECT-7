@@ -1,12 +1,7 @@
-import mayflower.Mayflower;
+import mayflower.*;
 
 public class MovableAnimatedActor extends AnimatedActor {
-   private Animation walkRight;
-   private Animation walkLeft;
-   private Animation idleRight;
-   private Animation idleLeft;
-   private Animation fallRight;
-   private Animation fallLeft;
+   private Animation walkRight, walkLeft, idleRight, idleLeft, fallRight, fallLeft;
    private String currentAction;
    private String direction;
    private boolean falling;
@@ -31,27 +26,35 @@ public class MovableAnimatedActor extends AnimatedActor {
       int h = getHeight();
       int speed = 1;
       if (Mayflower.isKeyDown(39) && x + w < 800) {
-         setLocation((double)(x + speed), (double)y);
+         setLocation((double) (x + speed), (double) y);
          newAction = "walkRight";
          direction = "right";
          if (isBlocked()) {
-            setLocation((double)(x - speed), (double)y);
+            setLocation((double) (x - speed), (double) y);
+         }
+         if (falling) { // if falling while key pressed down
+            newAction = "";
+            direction = "right";
+         }
+         if (falling) { // if falling while key pressed down
+            newAction = "";
+            direction = "right";
          }
       } else if (Mayflower.isKeyDown(37) && x > 0) {
-         setLocation((double)(x - speed), (double)y);
+         setLocation((double) (x - speed), (double) y);
          newAction = "walkLeft";
          direction = "left";
          if (isBlocked()) {
-            setLocation((double)(x + speed), (double)y);
+            setLocation((double) (x + speed), (double) y);
          }
       } else if (Mayflower.isKeyPressed(38) && y > 0) {
          if (getYVelocity() == 0.0) {
-            setYVelocity(-10);
+            setYVelocity(-10.0);
          }
       } else if (Mayflower.isKeyDown(40) && y + h < 600) {
-         setLocation((double)x, (double)(y + speed));
+         setLocation((double) x, (double) (y + speed));
          if (isBlocked()) {
-            setLocation((double)x, (double)(y - speed));
+            setLocation((double) x, (double) (y - speed));
          }
       } else if (direction != null && !isFalling()) {
          if (direction.equals("left")) {
@@ -62,23 +65,16 @@ public class MovableAnimatedActor extends AnimatedActor {
             newAction = "idleRight";
          }
       } else if (falling) {
-         newAction = "";
+         newAction = "left";
       }
 
       if (newAction != null && !newAction.equals(currentAction)) {
-         if (newAction.equals("idleRight")) {
-            setAnimation(idleRight);
-         }
 
-         if (newAction.equals("idleLeft")) {
-            setAnimation(idleLeft);
-         }
-
-         if (newAction.equals("walkRight")) {
+         if (newAction.equals("walkRight") && !falling) {
             setAnimation(walkRight);
          }
 
-         if (newAction.equals("walkLeft")) {
+         if (newAction.equals("walkLeft") && !falling) {
             setAnimation(walkLeft);
          }
 
@@ -90,6 +86,14 @@ public class MovableAnimatedActor extends AnimatedActor {
             if (direction.equals("right")) {
                setAnimation(fallRight);
             }
+         }
+
+         if (newAction.equals("idleRight")) {
+            setAnimation(idleRight);
+         }
+
+         if (newAction.equals("idleLeft")) {
+            setAnimation(idleLeft);
          }
 
          currentAction = newAction;

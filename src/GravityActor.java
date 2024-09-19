@@ -6,10 +6,10 @@ public class GravityActor extends Actor {
 
    public void act() {
       yVelocity += 0.2;
-      setLocation((double)getX(), (double)getY() + yVelocity);
-      if (this.isBlocked()) {
-         this.yVelocity = 0.0;
-         this.setLocation((double)this.getX(), (double)this.getY() - this.yVelocity);
+      setLocation((double) getX(), (double) getY() + yVelocity);
+      if (isBlocked()) {
+         yVelocity = 0.0;
+         setLocation((double) getX(), (double) getY() - yVelocity);
       }
       pastLimit = false;
       if (getY() < 50) {
