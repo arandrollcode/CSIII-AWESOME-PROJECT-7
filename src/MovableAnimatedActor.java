@@ -5,6 +5,7 @@ public class MovableAnimatedActor extends AnimatedActor {
    private String currentAction;
    private String direction;
    private boolean falling;
+   private boolean dead;
 
    public void act() {
       super.act();
@@ -83,6 +84,10 @@ public class MovableAnimatedActor extends AnimatedActor {
       }
 
       currentAction = newAction;
+
+      if (getY() + 87 > 600) {
+         dead = true;
+      }
    }
 
    public void setAnimation(Animation a) {
@@ -111,5 +116,9 @@ public class MovableAnimatedActor extends AnimatedActor {
 
    public void setFallLeftAnimation(Animation a) {
       fallLeft = a;
+   }
+
+   public boolean isDead() {
+      return dead;
    }
 }

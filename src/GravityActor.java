@@ -15,23 +15,26 @@ public class GravityActor extends Actor {
       if (getY() < 50) {
          setLocation(getX(), getY() - yVelocity);
          pastLimit = true;
-      } else if (getY() > 450) {
-         setLocation(getX(), (int) (getY() - yVelocity - 1));
-         pastLimit = true;
-      }
+      } 
+      // else if (getY() > 450) {
+      //    setLocation(getX(), (int)(getY() - yVelocity - 1));
+      //    pastLimit = true;
+      // }
+      
 
    }
 
    public boolean isBlocked() {
-      return isTouching(Block.class);
+      return isTouching(Platform.class);
    }
 
    public boolean isFalling() {
-      setLocation((double) getX(), (double) (getY() + 1));
-      boolean output = isTouching(Block.class);
+      setLocation((double)getX(), (double)(getY() + 1));
+      boolean output = isTouching(Platform.class);
 
-      while (isTouching(Block.class)) {
-         setLocation((double) getX(), (double) (getY() - 1));
+      while(isTouching(Platform.class)) {
+         setLocation((double)getX(), (double)(getY() - 1));
+         yVelocity = 0;
       }
 
       return !output;
