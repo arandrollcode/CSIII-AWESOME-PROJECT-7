@@ -3,6 +3,7 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "h:\\CSIII\\mayflower3.3.7.jar"
+        "h:\\CSIII\\mayflower3.3.7.jar",
+        "mayflower3.3.7.jar"
     ]
 }
