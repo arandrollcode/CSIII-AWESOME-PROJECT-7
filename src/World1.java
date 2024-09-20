@@ -5,7 +5,7 @@ public class World1 extends World {
 
    public World1() {
       Mayflower.showBounds(true);
-      setBackground("src/img/BG/BG.png");
+      setBackground("src/img/BG/BG2.png");
 
       tiles = new Tiles[20][8];
       for (int i = 0; i < tiles[0].length; i++) {
