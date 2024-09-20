@@ -5,62 +5,50 @@ public class MovableAnimatedActor extends AnimatedActor {
    private String currentAction;
    private String direction;
    private boolean falling;
+   private boolean dead;
 
    public void act() {
       super.act();
+
       falling = isFalling();
       String newAction = null;
       if (currentAction == null) {
          newAction = "";
          setAnimation(idleRight);
       }
-
       if (direction == null) {
          direction = "right";
       }
 
-      int x = getX();
-      int y = getY();
-      int w = getWidth();
-      int h = getHeight();
-      int speed = 1;
-      if (Mayflower.isKeyDown(39) && x + w < 800) {
-         setLocation((double) (x + speed), (double) y);
+      int x = getX(), y = getY();
+      int w = getWidth(), h = getHeight();
+      int xVelocity = 1;
+
+      double newX = x, newY = y;
+      if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT) && x + w < 800) {
+         if (!isBlocked())
+            newX += xVelocity;
          newAction = "walkRight";
          direction = "right";
-         if (isBlocked()) {
-            setLocation((double) (x - speed), (double) y);
-         }
-         if (falling) { // if falling while key pressed down
-            newAction = "";
-            direction = "right";
-         }
-         if (falling) { // if falling while key pressed down
-            newAction = "";
-            direction = "right";
-         }
-      } else if (Mayflower.isKeyDown(37) && x > 0) {
-         setLocation((double) (x - speed), (double) y);
+      }
+      if (Mayflower.isKeyDown(Keyboard.KEY_LEFT) && x > 0) {
+         if (!isBlocked())
+            newX -= xVelocity;
          newAction = "walkLeft";
          direction = "left";
-         if (isBlocked()) {
-            setLocation((double) (x + speed), (double) y);
-         }
-         if (falling) { // if falling while key pressed down
-            newAction = "";
-            direction = "right";
-         }
-         direction = "left";
-      } else if (Mayflower.isKeyDown(38) && y > 0) {
+      }
+      if (Mayflower.isKeyDown(Keyboard.KEY_UP) && y > 0) {
          if (getYVelocity() == 0.0D) {
             setYVelocity(-10.0D);
          }
-      } else if (Mayflower.isKeyDown(40) && y + h < 600) {
-         setLocation((double) x, (double) (y + speed));
-         if (isBlocked()) {
-            setLocation((double) x, (double) (y - speed));
-         }
-      } else if (direction != null && !isFalling()) {
+      }
+
+      if (falling) {
+         if (direction.equals("left"))
+            newAction = "fallLeft";
+         else
+            newAction = "fallRight";
+      } else { // standing still or idle
          if (direction.equals("left")) {
             newAction = "idleLeft";
          }
@@ -68,41 +56,38 @@ public class MovableAnimatedActor extends AnimatedActor {
          if (direction.equals("right")) {
             newAction = "idleRight";
          }
-      } else if (falling) {
-         newAction = "left";
       }
+
+      setLocation(newX, newY);
 
       if (newAction != null && !newAction.equals(currentAction)) {
-
-         if (newAction.equals("walkRight") && !falling) {
-            setAnimation(walkRight);
-         }
-
-         if (newAction.equals("walkLeft") && !falling) {
-            setAnimation(walkLeft);
-         }
-
-         if (falling) {
-            if (direction.equals("left")) {
+         switch (newAction) {
+            case "walkRight":
+               setAnimation(walkRight);
+               break;
+            case "walkLeft":
+               setAnimation(walkLeft);
+               break;
+            case "fallLeft":
                setAnimation(fallLeft);
-            }
-
-            if (direction.equals("right")) {
+               break;
+            case "fallRight":
                setAnimation(fallRight);
-            }
+               break;
+            case "idleLeft":
+               setAnimation(idleLeft);
+               break;
+            case "idleRight":
+               setAnimation(idleRight);
+               break;
          }
-
-         if (newAction.equals("idleRight")) {
-            setAnimation(idleRight);
-         }
-
-         if (newAction.equals("idleLeft")) {
-            setAnimation(idleLeft);
-         }
-
-         currentAction = newAction;
       }
 
+      currentAction = newAction;
+
+      if (getY() + 87 > 600) {
+         dead = true;
+      }
    }
 
    public void setAnimation(Animation a) {
@@ -131,5 +116,9 @@ public class MovableAnimatedActor extends AnimatedActor {
 
    public void setFallLeftAnimation(Animation a) {
       fallLeft = a;
+   }
+
+   public boolean isDead() {
+      return dead;
    }
 }
