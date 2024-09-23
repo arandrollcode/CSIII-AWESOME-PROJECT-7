@@ -1,10 +1,10 @@
 import mayflower.*;
 
-public class Cat extends MovableAnimatedActor {
+public class Player extends MovableAnimatedActor {
    private Animation walkRight, walkLeft, idleRight, idleLeft, fallRight, fallLeft;
    private int score, lives;
 
-   public Cat() {
+   public Player() {
       initializeAnimations();
       score = 0;
       lives = 3;
