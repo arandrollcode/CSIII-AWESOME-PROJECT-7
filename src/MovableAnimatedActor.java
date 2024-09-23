@@ -2,8 +2,8 @@ import mayflower.*;
 
 public class MovableAnimatedActor extends AnimatedActor {
    private Animation walkRight, walkLeft, idleRight, idleLeft, fallRight, fallLeft;
-   private String currentAction;
-   private String direction;
+   private String currentAction = "";
+   private String direction = "left";
    private boolean falling;
    private boolean dead;
 
@@ -11,14 +11,7 @@ public class MovableAnimatedActor extends AnimatedActor {
       super.act();
 
       falling = isFalling();
-      String newAction = null;
-      if (currentAction == null) {
-         newAction = "";
-         setAnimation(idleRight);
-      }
-      if (direction == null) {
-         direction = "right";
-      }
+      String newAction = "";
 
       int x = getX(), y = getY();
       int w = getWidth(), h = getHeight();
@@ -48,7 +41,7 @@ public class MovableAnimatedActor extends AnimatedActor {
             newAction = "fallLeft";
          else
             newAction = "fallRight";
-      } else { // standing still or idle
+      } else if (!newAction.contains("walk")) { // standing still or idle
          if (direction.equals("left")) {
             newAction = "idleLeft";
          }
@@ -59,6 +52,7 @@ public class MovableAnimatedActor extends AnimatedActor {
       }
 
       setLocation(newX, newY);
+      System.out.println(newAction);
 
       if (newAction != null && !newAction.equals(currentAction)) {
          switch (newAction) {
