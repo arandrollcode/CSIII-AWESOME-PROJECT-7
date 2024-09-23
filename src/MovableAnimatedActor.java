@@ -15,7 +15,7 @@ public class MovableAnimatedActor extends AnimatedActor {
 
       int x = getX(), y = getY();
       int w = getWidth(), h = getHeight();
-      int xVelocity = 1;
+      int xVelocity = 2;
 
       double newX = x, newY = y;
       if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT) && x + w < 800) {
@@ -52,7 +52,6 @@ public class MovableAnimatedActor extends AnimatedActor {
       }
 
       setLocation(newX, newY);
-      System.out.println(newAction);
 
       if (newAction != null && !newAction.equals(currentAction)) {
          switch (newAction) {
