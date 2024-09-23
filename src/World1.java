@@ -2,10 +2,15 @@ import mayflower.*;
 
 public class World1 extends World {
    private Tiles[][] tiles;
+   private Finish finish;
+   
+   MovableAnimatedActor player;
 
    public World1() {
       Mayflower.showBounds(true);
       setBackground("src/img/BG/BG2.png");
+
+      player = StartScreen.getPlayer();
 
       tiles = new Tiles[20][8];
       for (int i = 0; i < tiles[0].length; i++) {
@@ -22,17 +27,23 @@ public class World1 extends World {
       tiles[9][6] = Tiles.BLOCK;
       tiles[8][3] = Tiles.BLOCKLEFT;
       tiles[8][4] = Tiles.BLOCKRIGHT;
+      tiles[7][3] = Tiles.FINISH;
 
       for (int i = 0; i < tiles.length; i++) {
          for (int j = 0; j < tiles[0].length; j++) {
+            int x = j * 100;
+            int y = (i * 100) - 1400;
             if (tiles[i][j] == null)
                continue;
             if (tiles[i][j] == Tiles.BLOCK) {
-               addObject(new Block(), j * 100, (i * 100) - 1400);
+               addObject(new Block(), x, y);
             } else if (tiles[i][j] == Tiles.BLOCKLEFT) {
-               addObject(new BlockLeft(), j * 100, (i * 100) - 1400);
+               addObject(new BlockLeft(), x, y);
             } else if (tiles[i][j] == Tiles.BLOCKRIGHT) {
-               addObject(new BlockRight(), j * 100, (i * 100) - 1400);
+               addObject(new BlockRight(), x, y);
+            } else if (tiles[i][j] == Tiles.FINISH) {
+               finish = new Finish();
+               addObject(finish, x, y);
             }
          }
       }
@@ -44,9 +55,12 @@ public class World1 extends World {
    }
 
    public void act() {
-      MovableAnimatedActor player = StartScreen.getPlayer();
       if (player.isDead()) {
          removeObject(player);
+      } 
+      if (finish.goToNextWorld()) {
+         Mayflower.exit();
       }
+      // System.err.println(finish.goToNextWorld());
    }
 }

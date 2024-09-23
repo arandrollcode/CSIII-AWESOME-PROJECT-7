@@ -1,3 +1,4 @@
+import mayflower.MayflowerImage;
 
 public class Block extends Platform {
 
