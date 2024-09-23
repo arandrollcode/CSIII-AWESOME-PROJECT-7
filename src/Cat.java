@@ -51,11 +51,11 @@ public class Cat extends MovableAnimatedActor {
       }
       fallRight = new Animation(50000000, fallFrames);
       fallRight.scale(100, 87);
-      fallRight.setBounds(12, 2, 55, 82);
+      fallRight.setBounds(12, 2, 55, 80);
       fallLeft = new Animation(50000000, fallFrames);
       fallLeft.scale(100, 87);
       fallLeft.mirrorHorizontally();
-      fallLeft.setBounds(32, 2, 55, 82);
+      fallLeft.setBounds(32, 2, 55, 80);
 
       setWalkRightAnimation(walkRight);
       setWalkLeftAnimation(walkLeft);

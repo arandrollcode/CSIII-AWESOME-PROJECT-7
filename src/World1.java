@@ -11,7 +11,7 @@ public class World1 extends World {
       for (int i = 0; i < tiles[0].length; i++) {
          tiles[19][i] = Tiles.BLOCK;
       }
-      tiles[18][(int) (Math.random() * 8)] = Tiles.BLOCKLEFT;
+
       for (int i = tiles.length - 3; i >= 0; i--) {
          int blockLocation;
          do {
@@ -22,8 +22,9 @@ public class World1 extends World {
          tiles[i][blockLocation] = Tiles.BLOCKLEFT;
       }
 
+
       MovableAnimatedActor player = StartScreen.getPlayer();
-      addObject(player, 100, 500);
+      addObject(player, 100, 400);
       for (int i = 0; i < tiles.length; i++) {
          for (int j = 0; j < tiles[0].length; j++) {
             if (tiles[i][j] == Tiles.BLOCK) {
