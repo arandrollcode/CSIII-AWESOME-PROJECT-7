@@ -32,9 +32,17 @@ public class GravityActor extends Actor {
       setLocation((double)getX(), (double)(getY() + 1));
       boolean output = isTouching(Platform.class);
 
+      Platform platform = getOneIntersectingObject(Platform.class);
       while(isTouching(Platform.class)) {
-         setLocation((double)getX(), (double)(getY() - 1));
          yVelocity = 0;
+         if (getY() <= platform.getY()) {
+            setLocation((double)getX(), (double)(getY() - 1));
+         }
+         else if (getY() - 1 < platform.getY() + platform.getHeight()) {
+            setLocation((double)getX(), (double)(getY() + 1));
+
+         }
+         // System.err.println(getX() + " " + platform.getX() + " " + getWidth());
       }
 
       return !output;
