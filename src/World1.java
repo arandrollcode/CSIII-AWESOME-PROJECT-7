@@ -7,7 +7,7 @@ public class World1 extends World {
    MovableAnimatedActor player;
 
    public World1() {
-      Mayflower.showBounds(true);
+      Mayflower.showBounds(false);
       setBackground("src/img/BG/BG2.png");
 
       player = StartScreen.getPlayer();

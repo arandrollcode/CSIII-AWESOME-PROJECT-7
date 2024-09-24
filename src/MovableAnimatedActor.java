@@ -31,8 +31,8 @@ public class MovableAnimatedActor extends AnimatedActor {
          direction = "left";
       }
       if (Mayflower.isKeyDown(Keyboard.KEY_UP) && y > 0) {
-         if (getYVelocity() == 0.0D) {
-            setYVelocity(-10.0D);
+         if (getYVelocity() == 0.0) {
+            setYVelocity(-10.0);
          }
       }
 
