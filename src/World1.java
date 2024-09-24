@@ -29,10 +29,12 @@ public class World1 extends World {
 
       // randomize the positions of the coins on the map
       for (int numCoins = 10; numCoins > 0; numCoins--) {
-         int blockLocation;
+         int row, col;
          do {
-            blockLocation = (int) (Math.random() * 6 + 1);
-         } while ()
+            row = (int) (Math.random() * 20);
+            col = (int) (Math.random() * 8);
+         } while (tiles[row][col] != null);
+         tiles[row][col] = Tiles.COIN;
       }
 
       // place the correct items on the grid from the 2d array
@@ -48,6 +50,8 @@ public class World1 extends World {
                tileObject = new BlockLeft();
             } else if (tiles[i][j] == Tiles.BLOCKRIGHT) {
                tileObject = new BlockRight();
+            } else if (tiles[i][j] == Tiles.COIN) {
+               tileObject = new Coin();
             }
 
             if (tileObject != null)
