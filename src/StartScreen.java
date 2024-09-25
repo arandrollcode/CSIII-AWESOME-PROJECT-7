@@ -1,7 +1,7 @@
 import mayflower.*;
 
 public class StartScreen extends World {
-    private static MovableAnimatedActor playerCharacter;
+    private static Player playerCharacter;
 
     public StartScreen() {
         setBackground("src/img/BG/gamingwall.png");
@@ -16,7 +16,7 @@ public class StartScreen extends World {
         }
     }
 
-    public static MovableAnimatedActor getPlayer() {
+    public static Player getPlayer() {
         return playerCharacter;
     }
 }
