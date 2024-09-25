@@ -5,12 +5,16 @@ public class Hazard extends Actor {
 
     public Hazard() {
         player = StartScreen.getPlayer();
-        setImage("src/img/Object/Crate.png");
+        setImage("src\\img\\Object\\BlackHole.png");
     }
 
     public void act() {
         if (isTouching(Player.class)) {
-            player.decreaseLives(1);
+            player.decreaseLives(999);
+        }
+
+        if (player.isPastLimit()) {
+            setLocation(getX(), getY() - player.getYVelocity());
         }
     }
 }
