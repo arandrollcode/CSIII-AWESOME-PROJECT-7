@@ -2,10 +2,15 @@ import mayflower.*;
 
 public class World1 extends World {
    private Tiles[][] tiles;
+   private Finish finish;
+
+   MovableAnimatedActor player;
 
    public World1() {
-      Mayflower.showBounds(true);
+      Mayflower.showBounds(false);
       setBackground("src/img/BG/BG2.png");
+
+      player = StartScreen.getPlayer();
 
       tiles = new Tiles[20][8];
       for (int i = 0; i < tiles[0].length; i++) {
@@ -26,6 +31,7 @@ public class World1 extends World {
       tiles[7][2] = Tiles.BLOCKRIGHT;
       tiles[3][3] = Tiles.BLOCKLEFT;
       tiles[3][4] = Tiles.BLOCKRIGHT;
+      tiles[2][4] = Tiles.FINISH;
 
       // randomize the positions of the coins on the map
       for (int numCoins = 10; numCoins > 0; numCoins--) {
@@ -52,6 +58,9 @@ public class World1 extends World {
                tileObject = new BlockRight();
             } else if (tiles[i][j] == Tiles.COIN) {
                tileObject = new Coin();
+            } else if (tiles[i][j] == Tiles.FINISH) {
+               finish = new Finish();
+               tileObject = finish;
             }
 
             if (tileObject != null)
@@ -68,9 +77,12 @@ public class World1 extends World {
    }
 
    public void act() {
-      MovableAnimatedActor player = StartScreen.getPlayer();
       if (player.isDead()) {
          removeObject(player);
       }
+      if (finish.goToNextWorld()) {
+         Mayflower.exit();
+      }
+      // System.err.println(finish.goToNextWorld());
    }
 }

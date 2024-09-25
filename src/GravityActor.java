@@ -12,14 +12,10 @@ public class GravityActor extends Actor {
          setLocation((double) getX(), (double) getY() - yVelocity);
       }
       pastLimit = false;
-      if (getY() < 50) {
+      if (getY() < 100) {
          setLocation(getX(), getY() - yVelocity);
          pastLimit = true;
       }
-      // else if (getY() > 450) {
-      // setLocation(getX(), (int)(getY() - yVelocity - 1));
-      // pastLimit = true;
-      // }
 
    }
 
@@ -30,17 +26,32 @@ public class GravityActor extends Actor {
    public boolean isFalling() {
       setLocation((double) getX(), (double) (getY() + 1));
       boolean output = isTouching(Platform.class);
+      boolean onTop, onLeft, onRight;
 
       Platform platform = getOneIntersectingObject(Platform.class);
       while (isTouching(Platform.class)) {
          yVelocity = 0;
-         if (getY() <= platform.getY()) {
-            setLocation((double) getX(), (double) (getY() - 1));
-         } else if (getY() - 1 < platform.getY() + platform.getHeight()) {
-            setLocation((double) getX(), (double) (getY() + 1));
+         onTop = getY() + getHeight() > platform.getY() && getY() < platform.getY();
+         onLeft = !(getX() + getWidth() > platform.getX() + 3);
+         onRight = !(getX() + 3 < platform.getX() + platform.getWidth());
+         
+         // Keeps player above block if it's resting on top
+         if (!onLeft && !onRight) {
+            if (onTop) {
+               setLocation((double) getX(), (double) (getY() - 1));
+            }
+            else 
+               setLocation((double) getX(), (double) (getY() + 1));
 
          }
-         // System.err.println(getX() + " " + platform.getX() + " " + getWidth());
+         // Moves it to left if it's touching the left side, moves to right if it's touching the right side
+         else if (onLeft) {
+            setLocation((double) getX() - 1, (double) (getY() - 1));
+            break;
+         } else if (onRight) {
+            setLocation((double) getX() + 1, (double) (getY() - 1));
+            break;
+         }
       }
 
       return !output;
