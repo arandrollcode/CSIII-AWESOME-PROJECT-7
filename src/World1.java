@@ -82,8 +82,7 @@ public class World1 extends World {
 
    public void act() {
       if (finish.goToNextWorld()) {
-         Mayflower.exit();
+         Mayflower.setWorld(new World2());
       }
-      // System.err.println(finish.goToNextWorld());
    }
 }
