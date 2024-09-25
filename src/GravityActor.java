@@ -39,6 +39,10 @@ public class GravityActor extends Actor {
          if (!onLeft && !onRight) {
             if (onTop) {
                setLocation((double) getX(), (double) (getY() - 1));
+               if (isTouching(MovingBlock.class)) {
+                  MovingBlock movingBlock = getOneIntersectingObject(MovingBlock.class);
+                  setLocation(getX() + movingBlock.getDirection(), getY());
+               }
             }
             else 
                setLocation((double) getX(), (double) (getY() + 1));
