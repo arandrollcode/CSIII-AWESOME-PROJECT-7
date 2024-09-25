@@ -81,8 +81,7 @@ public class World1 extends World {
          removeObject(player);
       }
       if (finish.goToNextWorld()) {
-         Mayflower.exit();
+         Mayflower.setWorld(new World2());
       }
-      // System.err.println(finish.goToNextWorld());
    }
 }
