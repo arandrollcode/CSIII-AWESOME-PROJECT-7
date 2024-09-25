@@ -6,7 +6,7 @@ public class Coin extends Actor {
 
     public Coin() {
         player = StartScreen.getPlayer();
-        setImage("src/img/Object/Stone.png");
+        setImage("src/img/Sprite/Coin.png");
     }
 
     public void act() {
