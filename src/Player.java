@@ -20,6 +20,10 @@ public class Player extends MovableAnimatedActor {
       score += amount;
    }
 
+   public void decreaseLives(int amount) {
+      lives -= amount;
+   }
+
    private void initializeAnimations() {
       String[] frames = new String[10];
 
@@ -67,6 +71,9 @@ public class Player extends MovableAnimatedActor {
 
    public void act() {
       super.act();
+      if (lives <= 0) {
+         Mayflower.setWorld(new DeathScreen());
+      }
       updateText();
    }
 }
