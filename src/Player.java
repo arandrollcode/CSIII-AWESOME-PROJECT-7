@@ -71,9 +71,20 @@ public class Player extends MovableAnimatedActor {
 
    public void act() {
       super.act();
-      if (lives <= 0) {
+      if (isDead() && lives > 0) {
+         // Respawn at bottom and reset platforms
+         respawn();
+         Platform.setMovedDown(0);
+      } else if (lives <= 0) {
+         // Set to game over screen when out of lives
          Mayflower.setWorld(new DeathScreen());
       }
       updateText();
+   }
+
+   public void respawn() {
+      setDead(false);
+      setLocation(100, 400);
+      lives--;
    }
 }
