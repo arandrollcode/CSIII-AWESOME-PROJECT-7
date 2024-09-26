@@ -30,24 +30,28 @@ public class Player extends MovableAnimatedActor {
       for (int i = 1; i <= 10; i++) {
          frames[i - 1] = "src/img/sprite/Walk (" + i + ").png";
       }
+      int WIDTH = 45;
+      int HEIGHT = 74;
+
+
       walkRight = new Animation(50000000, frames);
       walkRight.scale(100, 87);
-      walkRight.setBounds(24, 10, 45, 77);
+      walkRight.setBounds(24, 10, WIDTH, HEIGHT);
       walkLeft = new Animation(50000000, frames);
       walkLeft.scale(100, 87);
       walkLeft.mirrorHorizontally();
-      walkLeft.setBounds(28, 10, 45, 77);
+      walkLeft.setBounds(29, 10, WIDTH, HEIGHT);
 
       for (int i = 1; i <= 10; i++) {
          frames[i - 1] = "src/img/sprite/Idle (" + i + ").png";
       }
       idleRight = new Animation(50000000, frames);
       idleRight.scale(100, 87);
-      idleRight.setBounds(27, 10, 45, 77);
+      idleRight.setBounds(25, 13, WIDTH, HEIGHT);
       idleLeft = new Animation(50000000, frames);
       idleLeft.scale(100, 87);
       idleLeft.mirrorHorizontally();
-      idleLeft.setBounds(27, 10, 45, 77);
+      idleLeft.setBounds(30, 13, WIDTH, HEIGHT);
 
       String[] fallFrames = new String[8];
       for (int i = 1; i <= 8; i++) {
@@ -55,11 +59,11 @@ public class Player extends MovableAnimatedActor {
       }
       fallRight = new Animation(50000000, fallFrames);
       fallRight.scale(100, 87);
-      fallRight.setBounds(18, 10, 45, 77);
+      fallRight.setBounds(18, 10, WIDTH, HEIGHT);
       fallLeft = new Animation(50000000, fallFrames);
       fallLeft.scale(100, 87);
       fallLeft.mirrorHorizontally();
-      fallLeft.setBounds(37, 10, 45, 77);
+      fallLeft.setBounds(37, 10, WIDTH, HEIGHT);
 
       setWalkRightAnimation(walkRight);
       setWalkLeftAnimation(walkLeft);
