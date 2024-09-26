@@ -19,7 +19,7 @@ public class World1 extends World {
          tiles[19][i] = Tiles.BLOCK;
       }
       tiles[18][2] = Tiles.BLOCK;
-      tiles[17][4] = Tiles.MOVINGBLOCK;
+      tiles[17][4] = Tiles.BLOCK;
       tiles[16][6] = Tiles.BLOCK;
       tiles[14][3] = Tiles.BLOCKLEFT;
       tiles[14][4] = Tiles.BLOCKRIGHT;
@@ -64,7 +64,7 @@ public class World1 extends World {
                finish = new Finish();
                tileObject = finish;
             } else if (tiles[i][j] == Tiles.MOVINGBLOCK) {
-               tileObject = new MovingBlock(100, 400);
+               tileObject = new MovingBlock();
             } else if (tiles[i][j] == Tiles.HAZARD) {
                tileObject = new Hazard();
             }

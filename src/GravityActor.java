@@ -28,23 +28,36 @@ public class GravityActor extends Actor {
       boolean output = isTouching(Platform.class);
       boolean onTop, onLeft, onRight;
 
+      // Move player if standing on top of moving block
+      if (isTouching(MovingBlock.class)) {
+         MovingBlock moving = getOneIntersectingObject(MovingBlock.class);
+         setLocation(getX() + moving.getDirection(), getY());
+      }
+
+      // Control player interaction with blocks
+      // Move to top of block if standing on top
+      // Move to right slightly if touching left side
+      // Move to left slightly if touching right side
       Platform platform = getOneIntersectingObject(Platform.class);
       while (isTouching(Platform.class)) {
          yVelocity = 0;
+         // Evaluates to true if on top of a platform
          onTop = getY() + getHeight() > platform.getY() && getY() < platform.getY();
+         // Evaluates to true if touching the left of a platform
          onLeft = !(getX() + getWidth() > platform.getX() + 3);
+         // Evaluates to true if touching the right of a platform
          onRight = !(getX() + 3 < platform.getX() + platform.getWidth());
 
          // Keeps player above block if it's resting on top
          if (!onLeft && !onRight) {
-            if (onTop) {
+            if (onTop)
                setLocation((double) getX(), (double) (getY() - 1));
-            } else
+            else
                setLocation((double) getX(), (double) (getY() + 1));
 
          }
-         // Moves it to left if it's touching the left side, moves to right if it's
-         // touching the right side
+         // Moves it to left if it's touching the left side, 
+         //moves to right if it's touching the right side
          else if (onLeft) {
             setLocation((double) getX() - 1, (double) (getY() - 1));
             break;
