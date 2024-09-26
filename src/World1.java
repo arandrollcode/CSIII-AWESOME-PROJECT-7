@@ -65,6 +65,8 @@ public class World1 extends World {
                tileObject = finish;
             } else if (tiles[i][j] == Tiles.MOVINGBLOCK) {
                tileObject = new MovingBlock(100, 400);
+            } else if (tiles[i][j] == Tiles.HAZARD) {
+               tileObject = new Hazard();
             }
 
             if (tileObject != null)

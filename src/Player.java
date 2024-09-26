@@ -20,6 +20,10 @@ public class Player extends MovableAnimatedActor {
       score += amount;
    }
 
+   public void decreaseLives(int amount) {
+      lives -= amount;
+   }
+
    private void initializeAnimations() {
       String[] frames = new String[10];
 
@@ -28,22 +32,22 @@ public class Player extends MovableAnimatedActor {
       }
       walkRight = new Animation(50000000, frames);
       walkRight.scale(100, 87);
-      walkRight.setBounds(18, 5, 54, 80);
+      walkRight.setBounds(24, 10, 45, 77);
       walkLeft = new Animation(50000000, frames);
       walkLeft.scale(100, 87);
       walkLeft.mirrorHorizontally();
-      walkLeft.setBounds(28, 5, 54, 80);
+      walkLeft.setBounds(28, 10, 45, 77);
 
       for (int i = 1; i <= 10; i++) {
          frames[i - 1] = "src/img/sprite/Idle (" + i + ").png";
       }
       idleRight = new Animation(50000000, frames);
       idleRight.scale(100, 87);
-      idleRight.setBounds(18, 5, 54, 80);
+      idleRight.setBounds(27, 10, 45, 77);
       idleLeft = new Animation(50000000, frames);
       idleLeft.scale(100, 87);
       idleLeft.mirrorHorizontally();
-      idleLeft.setBounds(27, 5, 54, 80);
+      idleLeft.setBounds(27, 10, 45, 77);
 
       String[] fallFrames = new String[8];
       for (int i = 1; i <= 8; i++) {
@@ -51,11 +55,11 @@ public class Player extends MovableAnimatedActor {
       }
       fallRight = new Animation(50000000, fallFrames);
       fallRight.scale(100, 87);
-      fallRight.setBounds(12, 2, 55, 80);
+      fallRight.setBounds(18, 10, 45, 77);
       fallLeft = new Animation(50000000, fallFrames);
       fallLeft.scale(100, 87);
       fallLeft.mirrorHorizontally();
-      fallLeft.setBounds(32, 2, 55, 80);
+      fallLeft.setBounds(37, 10, 45, 77);
 
       setWalkRightAnimation(walkRight);
       setWalkLeftAnimation(walkLeft);
@@ -73,7 +77,7 @@ public class Player extends MovableAnimatedActor {
          Platform.setMovedDown(0);
       } else if (lives <= 0) {
          // Set to game over screen when out of lives
-         Mayflower.setWorld(new StartScreen());
+         Mayflower.setWorld(new DeathScreen());
       }
       updateText();
    }

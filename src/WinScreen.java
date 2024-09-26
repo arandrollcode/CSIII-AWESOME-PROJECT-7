@@ -6,5 +6,8 @@ public class WinScreen extends World {
     }
 
     public void act() {
+        if (Mayflower.isKeyDown(Keyboard.KEY_ENTER)) {
+            Mayflower.setWorld(new StartScreen());
+        }
     }
 }
