@@ -13,8 +13,14 @@ public class Hazard extends Actor {
             player.decreaseLives(999);
         }
 
+        double newX = getX(), newY = getY();
+        newX += (this.getCenterX() < player.getCenterX()) ? 1 : -1;
+        newY += (this.getCenterY() < player.getCenterY()) ? 1 : -1;
+        
         if (player.isPastLimit()) {
-            setLocation(getX(), getY() - player.getYVelocity());
+            newY -= player.getYVelocity();
         }
+
+        setLocation(newX, newY);
     }
 }

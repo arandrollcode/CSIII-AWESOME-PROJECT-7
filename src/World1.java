@@ -33,8 +33,6 @@ public class World1 extends World {
       tiles[3][4] = Tiles.BLOCKRIGHT;
       tiles[2][4] = Tiles.FINISH;
 
-      tiles[18][3] = Tiles.HAZARD;
-
       // randomize the positions of the coins on the map
       for (int numCoins = 10; numCoins > 0; numCoins--) {
          int row, col;
