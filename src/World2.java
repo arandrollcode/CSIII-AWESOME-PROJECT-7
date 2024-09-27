@@ -37,7 +37,7 @@ public class World2 extends World {
       tiles[6][1] = Tiles.BLOCKRIGHT;
       tiles[4][3] = Tiles.BLOCKLEFT;
       tiles[4][4] = Tiles.BLOCKRIGHT;
-      tiles[0][6] = Tiles.FINISH;
+      tiles[1][6] = Tiles.FINISH;
       tiles[15][5] = Tiles.HAZARD;
 
       // randomize the positions of the coins on the map
@@ -71,7 +71,7 @@ public class World2 extends World {
             } else if (tiles[i][j] == Tiles.MOVINGBLOCK) {
                tileObject = new MovingBlock();
             } else if (tiles[i][j] == Tiles.HAZARD) {
-               tileObject = new Hazard();
+               tileObject = new Hazard(1, 1);
             }
 
             if (tileObject != null)
