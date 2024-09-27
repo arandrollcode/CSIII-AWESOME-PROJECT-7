@@ -17,6 +17,7 @@ public class MovableAnimatedActor extends AnimatedActor {
       int w = getWidth(), h = getHeight();
       int xVelocity = 3;
 
+      // Movement based on key pressed
       double newX = x, newY = y;
       if (Mayflower.isKeyDown(Keyboard.KEY_RIGHT) && x + w < 800) {
          if (!isBlocked())
@@ -36,6 +37,7 @@ public class MovableAnimatedActor extends AnimatedActor {
          }
       }
 
+      // Checks direction when falling
       if (falling) {
          if (direction.equals("left"))
             newAction = "fallLeft";
@@ -53,6 +55,7 @@ public class MovableAnimatedActor extends AnimatedActor {
 
       setLocation(newX, newY);
 
+      // sets animation based on movement
       if (newAction != null && !newAction.equals(currentAction)) {
          switch (newAction) {
             case "walkRight":
