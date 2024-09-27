@@ -88,11 +88,8 @@ public class World2 extends World {
    }
 
    public void act() {
-      if (player.isDead()) {
-         removeObject(player);
-      }
       if (finish.touchingPlayer()) {
-         Mayflower.setWorld(new World3());
+         Mayflower.setWorld(new World3());;
       }
    }
 }

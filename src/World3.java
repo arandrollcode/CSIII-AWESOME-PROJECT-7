@@ -77,11 +77,8 @@ public class World3 extends World {
    }
 
    public void act() {
-      if (player.isDead()) {
-         removeObject(player);
-      }
       if (finish.touchingPlayer()) {
-         Mayflower.setWorld(new WinScreen());
+         Mayflower.setWorld(new WinScreen());;
       }
    }
 }
