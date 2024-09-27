@@ -21,6 +21,7 @@ public class Coin extends Actor {
             World w = getWorld();
             w.removeObject(this);
             p.increaseScore(10);
+            Mayflower.playMusic("src/sounds/coin.mp3");
         }
     }
 }
