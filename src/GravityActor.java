@@ -50,10 +50,17 @@ public class GravityActor extends Actor {
 
          // Keeps player above block if it's resting on top
          if (!onLeft && !onRight) {
-            if (onTop)
+            if (onTop && !isTouching(Finish.class)) 
                setLocation((double) getX(), (double) (getY() - 1));
-            else
+            else if (onTop) {
+               yVelocity = 0;
+               break;
+            } else if (!isTouching(Finish.class))
                setLocation((double) getX(), (double) (getY() + 1));
+            else {
+               yVelocity = 0;
+               break;
+            }
 
          }
          // Moves it to left if it's touching the left side, 
