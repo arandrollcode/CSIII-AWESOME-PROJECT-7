@@ -4,8 +4,8 @@ public class Finish extends Platform {
         setImage("src/img/Object/Stone.png");
     }
 
-    public boolean goToNextWorld() {
-        return isTouching(MovableAnimatedActor.class);
+    public boolean touchingPlayer() {
+        return isTouching(Player.class);
     }
 
 }
