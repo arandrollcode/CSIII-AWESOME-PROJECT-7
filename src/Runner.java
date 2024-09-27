@@ -1,4 +1,4 @@
-public class Lab6Runner {
+public class Runner {
     public static void main(String[] args) {
         new MyMayflower();
     }

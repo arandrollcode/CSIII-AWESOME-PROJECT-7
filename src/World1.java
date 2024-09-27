@@ -10,6 +10,8 @@ public class World1 extends World {
       Mayflower.showBounds(false);
       setBackground("src/img/BG/BG2.png");
 
+      Platform.setMovedDown(0);
+
       player = StartScreen.getPlayer();
 
       tiles = new Tiles[20][8];
@@ -61,6 +63,10 @@ public class World1 extends World {
             } else if (tiles[i][j] == Tiles.FINISH) {
                finish = new Finish();
                tileObject = finish;
+            } else if (tiles[i][j] == Tiles.MOVINGBLOCK) {
+               tileObject = new MovingBlock();
+            } else if (tiles[i][j] == Tiles.HAZARD) {
+               tileObject = new Hazard();
             }
 
             if (tileObject != null)
@@ -77,12 +83,8 @@ public class World1 extends World {
    }
 
    public void act() {
-      if (player.isDead()) {
-         removeObject(player);
-      }
       if (finish.goToNextWorld()) {
-         Mayflower.exit();
+         Mayflower.setWorld(new World2());
       }
-      // System.err.println(finish.goToNextWorld());
    }
 }

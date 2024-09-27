@@ -18,12 +18,12 @@ public class World2 extends World {
       }
       tiles[18][6] = Tiles.BLOCK;
       tiles[18][7] = Tiles.BLOCK;
-      //tiles[18][8] = Tiles.BLOCK;
+      // tiles[18][8] = Tiles.BLOCK;
       tiles[17][6] = Tiles.BLOCK;
       tiles[17][7] = Tiles.BLOCK;
-      //tiles[17][8] = Tiles.BLOCK;
+      // tiles[17][8] = Tiles.BLOCK;
       tiles[16][7] = Tiles.BLOCK;
-      //tiles[16][8] = Tiles.BLOCK;
+      // tiles[16][8] = Tiles.BLOCK;
       tiles[13][1] = Tiles.BLOCK;
       tiles[15][3] = Tiles.BLOCKLEFT;
       tiles[15][4] = Tiles.BLOCKRIGHT;
@@ -38,17 +38,6 @@ public class World2 extends World {
       tiles[4][3] = Tiles.BLOCKLEFT;
       tiles[4][4] = Tiles.BLOCKRIGHT;
       tiles[0][6] = Tiles.FINISH;
-
-
-    //   String[][] tiles = {
-    //     {" ", " ", " ", " ", " ", " ", " ", " "},
-    //     {" ", " ", " ", " ", " ", " ", " ", " "}, 
-    //     {" ", " ", " ", " ", " ", " ", " ", " "}, 
-    //     {" ", " ", " ", " ", " ", " ", " ", " "}, 
-    //     {" ", " ", " ", " ", " ", " ", " ", " "}, 
-    //     {" ", " ", " ", " ", " ", " ", " ", " "}, 
-    //     {" ", " ", " ", " ", " ", " ", " ", " "}
-    //   };
 
       // randomize the positions of the coins on the map
       for (int numCoins = 10; numCoins > 0; numCoins--) {

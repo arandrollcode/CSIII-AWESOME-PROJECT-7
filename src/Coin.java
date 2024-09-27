@@ -2,7 +2,6 @@ import mayflower.*;
 
 public class Coin extends Actor {
     private MovableAnimatedActor player;
-    private static double movedDown;
 
     public Coin() {
         player = StartScreen.getPlayer();
@@ -12,7 +11,6 @@ public class Coin extends Actor {
     public void act() {
         if (player.isPastLimit()) {
             setLocation(getX(), getY() - player.getYVelocity());
-            movedDown += player.getYVelocity();
         }
 
         if (isTouching(Player.class)) {

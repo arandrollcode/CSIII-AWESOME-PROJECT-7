@@ -8,7 +8,7 @@ public class World3 extends World {
 
    public World3() {
       Mayflower.showBounds(false);
-      setBackground("src/img/BG/BG2.png");
+      setBackground("src/img/BG/BG-distorted.png");
 
       player = StartScreen.getPlayer();
 
@@ -18,13 +18,13 @@ public class World3 extends World {
       }
       tiles[18][4] = Tiles.BLOCK;
       tiles[16][6] = Tiles.BLOCK;
-      tiles[14][7] = Tiles.BLOCK; // FOR CONNOR - SLIDING BLOCK
+      tiles[14][6] = Tiles.MOVINGBLOCK; // FOR CONNOR - SLIDING BLOCK
       tiles[12][2] = Tiles.BLOCKLEFT;
       tiles[12][3] = Tiles.BLOCKRIGHT;
       tiles[10][4] = Tiles.BLOCKLEFT;
       tiles[10][5] = Tiles.BLOCKRIGHT;
-      tiles[7][4] = Tiles.BLOCK; // FOR CONNOR - SLIDING BLOCK
-      tiles[4][3] = Tiles.BLOCK; // FOR CONNOR - SLIDING BLOCK
+      tiles[7][4] = Tiles.MOVINGBLOCK; // FOR CONNOR - SLIDING BLOCK
+      tiles[4][3] = Tiles.MOVINGBLOCK; // FOR CONNOR - SLIDING BLOCK
       tiles[1][1] = Tiles.FINISH;
 
       // randomize the positions of the coins on the map
@@ -55,6 +55,10 @@ public class World3 extends World {
             } else if (tiles[i][j] == Tiles.FINISH) {
                finish = new Finish();
                tileObject = finish;
+            } else if (tiles[i][j] == Tiles.MOVINGBLOCK) {
+               tileObject = new MovingBlock();
+            } else if (tiles[i][j] == Tiles.HAZARD) {
+               tileObject = new Hazard();
             }
 
             if (tileObject != null)
