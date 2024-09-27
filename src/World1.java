@@ -23,17 +23,17 @@ public class World1 extends World {
       tiles[16][6] = Tiles.BLOCK;
       tiles[14][3] = Tiles.BLOCKLEFT;
       tiles[14][4] = Tiles.BLOCKRIGHT;
-      tiles[13][1] = Tiles.BLOCK;
-      tiles[11][3] = Tiles.BLOCKLEFT;
-      tiles[11][4] = Tiles.BLOCKRIGHT;
-      tiles[9][6] = Tiles.BLOCK;
-      tiles[8][3] = Tiles.BLOCKLEFT;
-      tiles[8][4] = Tiles.BLOCKRIGHT;
-      tiles[7][1] = Tiles.BLOCKLEFT;
-      tiles[7][2] = Tiles.BLOCKRIGHT;
-      tiles[3][3] = Tiles.BLOCKLEFT;
-      tiles[3][4] = Tiles.BLOCKRIGHT;
-      tiles[2][4] = Tiles.FINISH;
+      tiles[12][1] = Tiles.BLOCK;
+      tiles[10][3] = Tiles.BLOCKLEFT;
+      tiles[10][4] = Tiles.BLOCKRIGHT;
+      tiles[8][6] = Tiles.BLOCK;
+      tiles[6][3] = Tiles.BLOCKLEFT;
+      tiles[6][4] = Tiles.BLOCKRIGHT;
+      tiles[4][1] = Tiles.BLOCKLEFT;
+      tiles[4][2] = Tiles.BLOCKRIGHT;
+      tiles[2][3] = Tiles.BLOCKLEFT;
+      tiles[2][4] = Tiles.BLOCKRIGHT;
+      tiles[0][4] = Tiles.FINISH;
 
       // randomize the positions of the coins on the map
       for (int numCoins = 10; numCoins > 0; numCoins--) {
