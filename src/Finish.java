@@ -4,11 +4,11 @@ public class Finish extends Platform {
 
 
     public Finish() {
-        setImage("src/img/Object/Stone.png");
+        setImage("src/img/sprite/finishLine.png");
     }
 
-    public boolean goToNextWorld() {
-        return isTouching(MovableAnimatedActor.class);
+    public boolean touchingPlayer() {
+        return isTouching(Player.class);
     }
 
 }
