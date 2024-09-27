@@ -83,12 +83,11 @@ public class World2 extends World {
    }
 
    public void act() {
-      if (player.isDead()) {
-         removeObject(player);
-      }
       if (finish.goToNextWorld()) {
-         Mayflower.exit();
+         Mayflower.setWorld(new World3());;
       }
-      // System.err.println(finish.goToNextWorld());
+   }
+   public Finish getFinish() {
+      return finish;
    }
 }

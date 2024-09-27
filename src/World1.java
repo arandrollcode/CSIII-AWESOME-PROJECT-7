@@ -87,4 +87,8 @@ public class World1 extends World {
          Mayflower.setWorld(new World2());
       }
    }
+
+   public Finish getFinish() {
+      return finish;
+   }
 }
