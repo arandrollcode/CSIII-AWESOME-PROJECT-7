@@ -8,7 +8,7 @@ public class World3 extends World {
 
    public World3() {
       Mayflower.showBounds(false);
-      setBackground("src/img/BG/BG-distorted.png");
+      setBackground("src/img/BG/BG2.png");
 
       player = StartScreen.getPlayer();
 
