@@ -19,14 +19,13 @@ public class World3 extends World {
       tiles[18][4] = Tiles.BLOCK;
       tiles[16][6] = Tiles.BLOCK;
       tiles[14][7] = Tiles.BLOCK; // FOR CONNOR - SLIDING BLOCK
-      tiles[12][4] = Tiles.BLOCKLEFT;
-      tiles[12][5] = Tiles.BLOCKRIGHT;
-      tiles[9][4] = Tiles.BLOCK; // FOR CONNOR - SLIDING BLOCK
-      tiles[7][0] = Tiles.BLOCKLEFT;
-      tiles[7][1] = Tiles.BLOCKRIGHT;
+      tiles[12][2] = Tiles.BLOCKLEFT;
+      tiles[12][3] = Tiles.BLOCKRIGHT;
+      tiles[10][4] = Tiles.BLOCKLEFT;
+      tiles[10][5] = Tiles.BLOCKRIGHT;
+      tiles[7][4] = Tiles.BLOCK; // FOR CONNOR - SLIDING BLOCK
       tiles[4][3] = Tiles.BLOCK; // FOR CONNOR - SLIDING BLOCK
-      tiles[2][3] = Tiles.BLOCK; // FOR CONNOR - SLIDING BLOCK
-      tiles[0][1] = Tiles.FINISH;
+      tiles[1][1] = Tiles.FINISH;
 
       // randomize the positions of the coins on the map
       for (int numCoins = 10; numCoins > 0; numCoins--) {
