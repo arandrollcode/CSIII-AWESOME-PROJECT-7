@@ -18,13 +18,13 @@ public class World3 extends World {
       }
       tiles[18][4] = Tiles.BLOCK;
       tiles[16][6] = Tiles.BLOCK;
-      tiles[14][6] = Tiles.MOVINGBLOCK; // FOR CONNOR - SLIDING BLOCK
+      tiles[14][6] = Tiles.MOVINGBLOCK;
       tiles[12][2] = Tiles.BLOCKLEFT;
       tiles[12][3] = Tiles.BLOCKRIGHT;
       tiles[10][4] = Tiles.BLOCKLEFT;
       tiles[10][5] = Tiles.BLOCKRIGHT;
-      tiles[7][4] = Tiles.MOVINGBLOCK; // FOR CONNOR - SLIDING BLOCK
-      tiles[4][3] = Tiles.MOVINGBLOCK; // FOR CONNOR - SLIDING BLOCK
+      tiles[7][4] = Tiles.MOVINGBLOCK;
+      tiles[4][3] = Tiles.MOVINGBLOCK;
       tiles[1][1] = Tiles.FINISH;
 
       // randomize the positions of the coins on the map
@@ -78,9 +78,8 @@ public class World3 extends World {
       if (player.isDead()) {
          removeObject(player);
       }
-      if (finish.goToNextWorld()) {
-         Mayflower.exit();
+      if (finish.touchingPlayer()) {
+         Mayflower.setWorld(new WinScreen());
       }
-      // System.err.println(finish.goToNextWorld());
    }
 }

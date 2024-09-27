@@ -83,7 +83,7 @@ public class World1 extends World {
    }
 
    public void act() {
-      if (finish.goToNextWorld()) {
+      if (finish.touchingPlayer()) {
          Mayflower.setWorld(new World2());
       }
    }
