@@ -12,7 +12,7 @@ public class StartScreen extends World {
     public void act() {
         if (Mayflower.isKeyDown(Keyboard.KEY_ENTER)) {
             playerCharacter = new Player();
-            Mayflower.setWorld(new World1());
+            Mayflower.setWorld(new World3());
         }
     }
 
