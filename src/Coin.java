@@ -5,7 +5,9 @@ public class Coin extends Actor {
 
     public Coin() {
         player = StartScreen.getPlayer();
-        setImage("src/img/Sprite/Coin.png");
+        MayflowerImage image = new MayflowerImage("src/img/Sprite/Coin.png");
+        image.crop(16, 0, 58, 54);
+        setImage(image);
     }
 
     public void act() {

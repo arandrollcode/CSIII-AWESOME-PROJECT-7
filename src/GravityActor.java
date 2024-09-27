@@ -3,6 +3,10 @@ import mayflower.*;
 public class GravityActor extends Actor {
    private double yVelocity;
    private boolean pastLimit;
+   private boolean onTop;
+   private boolean onLeft;
+   private boolean onRight;
+
 
    public void act() {
       yVelocity += 0.2;
@@ -26,7 +30,6 @@ public class GravityActor extends Actor {
    public boolean isFalling() {
       setLocation((double) getX(), (double) (getY() + 1));
       boolean output = isTouching(Platform.class);
-      boolean onTop, onLeft, onRight;
 
       // Move player if standing on top of moving block
       if (isTouching(MovingBlock.class)) {
@@ -87,5 +90,17 @@ public class GravityActor extends Actor {
 
    public boolean isPastLimit() {
       return pastLimit;
+   }
+
+   public boolean isOnTop() {
+      return onTop;
+   }
+   
+   public boolean isOnLeft() {
+      return onLeft;
+   }
+   
+   public boolean isOnRight() {
+      return onRight;
    }
 }

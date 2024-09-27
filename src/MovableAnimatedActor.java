@@ -31,7 +31,8 @@ public class MovableAnimatedActor extends AnimatedActor {
          newAction = "walkLeft";
          direction = "left";
       }
-      if (Mayflower.isKeyDown(Keyboard.KEY_UP) && y > 0) {
+      // Causes actor to 'jump'
+      if (Mayflower.isKeyDown(Keyboard.KEY_UP) && y > 0 && isOnTop()) {
          if (getYVelocity() == 0.0) {
             setYVelocity(-10.0);
          }
