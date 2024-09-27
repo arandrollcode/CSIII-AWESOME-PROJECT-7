@@ -10,6 +10,8 @@ public class Player extends MovableAnimatedActor {
       lives = 3;
    }
 
+   // updates score when coins are picked up
+   // updates lives if fallen down
    private void updateText() {
       World w = getWorld();
       w.removeText(10, 30);
@@ -24,6 +26,7 @@ public class Player extends MovableAnimatedActor {
       lives -= amount;
    }
 
+   // Initializes walking/idle/fall animations
    private void initializeAnimations() {
       String[] frames = new String[10];
 
@@ -73,6 +76,7 @@ public class Player extends MovableAnimatedActor {
       setFallLeftAnimation(fallLeft);
    }
 
+   // Checks if player is dead
    public void act() {
       super.act();
       if (isDead() && lives > 0) {
