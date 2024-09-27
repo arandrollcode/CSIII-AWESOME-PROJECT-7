@@ -38,6 +38,7 @@ public class World2 extends World {
       tiles[4][3] = Tiles.BLOCKLEFT;
       tiles[4][4] = Tiles.BLOCKRIGHT;
       tiles[0][6] = Tiles.FINISH;
+      tiles[15][5] = Tiles.HAZARD;
 
       // randomize the positions of the coins on the map
       for (int numCoins = 10; numCoins > 0; numCoins--) {
@@ -67,6 +68,10 @@ public class World2 extends World {
             } else if (tiles[i][j] == Tiles.FINISH) {
                finish = new Finish();
                tileObject = finish;
+            } else if (tiles[i][j] == Tiles.MOVINGBLOCK) {
+               tileObject = new MovingBlock();
+            } else if (tiles[i][j] == Tiles.HAZARD) {
+               tileObject = new Hazard();
             }
 
             if (tileObject != null)
@@ -86,9 +91,8 @@ public class World2 extends World {
       if (player.isDead()) {
          removeObject(player);
       }
-      if (finish.goToNextWorld()) {
-         Mayflower.exit();
+      if (finish.touchingPlayer()) {
+         Mayflower.setWorld(new World3());
       }
-      // System.err.println(finish.goToNextWorld());
    }
 }
