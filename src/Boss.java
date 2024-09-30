@@ -47,7 +47,7 @@ public class Boss extends Actor {
             if (isTouching(Player.class)) {
                 vulnerable = false;
                 pauseTimer = new Timer(Integer.MAX_VALUE);
-                if (getY() < player.getY() + player.getHeight() - 5) {
+                if (getY() < player.getY() + player.getHeight() - 10) {
                     player.respawn();
                     nextYLocation = 100;
                 } else {
