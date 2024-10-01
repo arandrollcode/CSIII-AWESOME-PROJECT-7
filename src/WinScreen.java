@@ -8,7 +8,6 @@ public class WinScreen extends World {
         Mayflower.playMusic("src/sounds/gameWin.mp3");
     }
 
-    // s
     public void act() {
         if (Mayflower.isKeyDown(Keyboard.KEY_ENTER)) {
             Mayflower.setWorld(new StartScreen());

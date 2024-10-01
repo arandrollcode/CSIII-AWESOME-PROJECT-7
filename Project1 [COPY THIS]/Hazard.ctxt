@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Hazard
+comment1.params=vxMax\ vyMax
+comment1.target=Hazard(double,\ double)
+comment2.params=
+comment2.target=void\ act()
+numComments=3

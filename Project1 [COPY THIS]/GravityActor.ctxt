@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=GravityActor
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=boolean\ isBlocked()
+comment3.params=
+comment3.target=boolean\ isFalling()
+comment4.params=
+comment4.target=double\ getYVelocity()
+comment5.params=yV
+comment5.target=void\ setYVelocity(double)
+comment6.params=
+comment6.target=boolean\ isPastLimit()
+comment7.params=
+comment7.target=boolean\ isOnTop()
+comment8.params=
+comment8.target=boolean\ isOnLeft()
+comment9.params=
+comment9.target=boolean\ isOnRight()
+numComments=10

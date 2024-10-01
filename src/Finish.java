@@ -1,10 +1,6 @@
-
-
 public class Finish extends Platform {
-
-
     public Finish() {
-        setImage("src/img/sprite/finishLine.png");
+        setImage("src/img/Object/finishLine.png");
     }
 
     public boolean touchingPlayer() {

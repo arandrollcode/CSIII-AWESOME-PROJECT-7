@@ -35,18 +35,18 @@ public class BossWorld extends World {
 
                 Actor tileObject = null;
                 if (tiles[i][j] == Tiles.BLOCK) {
-                tileObject = new Block();
+                    tileObject = new Block();
                 } else if (tiles[i][j] == Tiles.BLOCKLEFT) {
-                tileObject = new BlockLeft();
+                    tileObject = new BlockLeft();
                 } else if (tiles[i][j] == Tiles.BLOCKRIGHT) {
-                tileObject = new BlockRight();
+                    tileObject = new BlockRight();
                 } else if (tiles[i][j] == Tiles.COIN) {
-                tileObject = new Coin();
+                    tileObject = new Coin();
                 } else if (tiles[i][j] == Tiles.FINISH) {
-                finish = new Finish();
-                tileObject = finish;
+                    finish = new Finish();
+                    tileObject = finish;
                 } else if (tiles[i][j] == Tiles.MOVINGBLOCK) {
-                tileObject = new MovingBlock();
+                    tileObject = new MovingBlock();
                 } else if (tiles[i][j] == Tiles.BOSS) {
                     boss = new Boss();
                     tileObject = boss;
@@ -58,18 +58,17 @@ public class BossWorld extends World {
                     addObject(tileObject, j * 100, (i * 100));
             }
         }
-        
-       addObject(player, 300, 400);
 
-       
-       Platform.setIsMovingDown(false);
+        addObject(player, 300, 400);
+
+        Platform.setIsMovingDown(false);
     }
 
     public void act() {
         if (boss.getHealth() <= 0) {
-           Mayflower.setWorld(new WinScreen());
+            Mayflower.setWorld(new WinScreen());
         }
-        
-     }
-    
+
+    }
+
 }
