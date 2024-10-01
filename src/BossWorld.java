@@ -20,10 +20,11 @@ public class BossWorld extends World {
         }
         tiles[1][1] = Tiles.BLOCK;
         tiles[1][6] = Tiles.BLOCK;
-        tiles[4][1] = Tiles.BLOCK;
         tiles[3][0] = Tiles.BLOCK;
         tiles[3][7] = Tiles.BLOCK;
+        tiles[4][1] = Tiles.BLOCK;
         tiles[4][6] = Tiles.BLOCK;
+        tiles[4][7] = Tiles.HAZARD;
 
         for (int i = 0; i < tiles.length; i++) {
             for (int j = 0; j < tiles[0].length; j++) {
@@ -47,7 +48,9 @@ public class BossWorld extends World {
                 } else if (tiles[i][j] == Tiles.BOSS) {
                     boss = new Boss();
                     tileObject = boss;
-                }
+                } else if (tiles[i][j] == Tiles.HAZARD) {
+                    tileObject = new Hazard(1.2, 1.2);
+                 }
 
                 if (tileObject != null)
                     addObject(tileObject, j * 100, (i * 100));
