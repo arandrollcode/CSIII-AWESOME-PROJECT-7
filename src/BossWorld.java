@@ -9,6 +9,8 @@ public class BossWorld extends World {
     public BossWorld() {
         Mayflower.showBounds(false);
         setBackground("src/img/BG/BG2.png");
+        Mayflower.stopMusic("src/sounds/music/music.mp3");
+        Mayflower.playMusic("src/sounds/music/boss.mp3");
         player = StartScreen.getPlayer();
 
         tiles = new Tiles[6][8];
