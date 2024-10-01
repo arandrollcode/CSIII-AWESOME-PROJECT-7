@@ -9,6 +9,8 @@ public class World2 extends World {
    public World2() {
       Mayflower.showBounds(false);
       setBackground("img/BG/BG2.png");
+      Mayflower.stopMusic("sounds/music/music.mp3");
+      Mayflower.playMusic("sounds/music/music.mp3");
 
       player = StartScreen.getPlayer();
 

@@ -6,19 +6,25 @@ public class Boss extends Actor {
     private Player player;
     private boolean vulnerable;
     private Timer pauseTimer, spikeTimer;
-    private MayflowerImage normal, paused;
+    private MayflowerImage normal, paused, playerHit, damaged;
 
     public Boss() {
         health = 100;
         player = StartScreen.getPlayer();
         vulnerable = true;
 
-        normal = new MayflowerImage("src/img/Blocks/block.png");
+        normal = new MayflowerImage("src/img/Boss/boss1.png");
         normal.scale(200, 200);
 
-        paused = new MayflowerImage("src/img/Blocks/block.png");
+        paused = new MayflowerImage("src/img/Boss/boss2.png");
         paused.scale(200, 200);
         paused.setTransparency(50);
+
+        playerHit = new MayflowerImage("src/img/Boss/boss3.png");
+        playerHit.scale(200, 200);
+
+        damaged = new MayflowerImage("src/img/Boss/boss4.png");
+        damaged.scale(200, 200);
 
         setImage(normal);
 
@@ -32,7 +38,11 @@ public class Boss extends Actor {
 
     public void act() {
         if (vulnerable) {
-            setImage(normal);
+            if (health <= 25) {
+                setImage(damaged);
+            } else {
+                setImage(normal);
+            }
             if (Integer.signum(nextXLocation - getX()) == 0)
                 nextXLocation = (int) (Math.random() * 200) + 200;
             else
@@ -40,6 +50,7 @@ public class Boss extends Actor {
             if (Integer.signum(nextYLocation - getY()) == 0)
                 nextYLocation = (int) (Math.random() * 300);
             else
+
                 setLocation(getX(), getY() + Integer.signum(nextYLocation - getY()));
 
             if (isTouching(Player.class)) {
@@ -48,6 +59,7 @@ public class Boss extends Actor {
                 if (getY() < player.getY() + player.getHeight() - 10) {
                     player.respawn();
                     nextYLocation = 100;
+                    setImage(playerHit);
                 } else {
                     player.setYVelocity(-5);
                     ;

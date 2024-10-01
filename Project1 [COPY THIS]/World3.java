@@ -9,6 +9,8 @@ public class World3 extends World {
    public World3() {
       Mayflower.showBounds(false);
       setBackground("img/BG/BG2.png");
+      Mayflower.stopMusic("sounds/music/music.mp3");
+      Mayflower.playMusic("sounds/music/music.mp3");
 
       player = StartScreen.getPlayer();
 
@@ -78,7 +80,8 @@ public class World3 extends World {
 
    public void act() {
       if (finish.touchingPlayer()) {
-         Mayflower.setWorld(new WinScreen());
+         Mayflower.setWorld(new BossWorld());
+         ;
       }
    }
 }
