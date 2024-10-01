@@ -1,6 +1,4 @@
-
 public class Finish extends Platform {
-
     public Finish() {
         setImage("src/img/Object/finishLine.png");
     }

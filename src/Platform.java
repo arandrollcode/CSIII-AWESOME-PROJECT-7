@@ -18,8 +18,7 @@ public class Platform extends Actor {
          setLocation(getX(), getY() - player.getYVelocity());
          movedDown -= player.getYVelocity();
       }
-      
-      
+
    }
 
    public double getMovedDown() {
@@ -40,8 +39,5 @@ public class Platform extends Actor {
    public static void setIsMovingDown(boolean moving) {
       isMovingDown = moving;
    }
-
-
-
 
 }

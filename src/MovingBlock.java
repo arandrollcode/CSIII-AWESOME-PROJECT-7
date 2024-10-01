@@ -1,5 +1,3 @@
-
-
 public class MovingBlock extends Block {
     private int leftBounds, rightBounds, direction;
 
