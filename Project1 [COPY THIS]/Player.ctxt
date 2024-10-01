@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Player
+comment1.params=
+comment1.target=Player()
+comment2.params=
+comment2.target=void\ updateText()
+comment3.params=amount
+comment3.target=void\ increaseScore(int)
+comment4.params=amount
+comment4.target=void\ decreaseLives(int)
+comment5.params=
+comment5.target=void\ act()
+comment6.params=
+comment6.target=void\ respawn()
+comment7.params=
+comment7.target=void\ initializeAnimations()
+numComments=8

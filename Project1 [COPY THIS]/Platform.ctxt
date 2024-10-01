@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Platform
+comment1.params=
+comment1.target=Platform()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=double\ getMovedDown()
+comment4.params=move
+comment4.target=void\ setMovedDown(double)
+comment5.params=
+comment5.target=boolean\ getIsMovingDown()
+comment6.params=moving
+comment6.target=void\ setIsMovingDown(boolean)
+numComments=7
