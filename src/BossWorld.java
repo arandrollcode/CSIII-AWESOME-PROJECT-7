@@ -7,7 +7,7 @@ public class BossWorld extends World {
     private MovableAnimatedActor player;
 
     public BossWorld() {
-        Mayflower.showBounds(true);
+        Mayflower.showBounds(false);
         setBackground("src/img/BG/BG2.png");
         player = StartScreen.getPlayer();
 

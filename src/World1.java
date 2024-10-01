@@ -74,7 +74,7 @@ public class World1 extends World {
 
       // add the player to the world
       MovableAnimatedActor player = StartScreen.getPlayer();
-      addObject(player, 300, 400);
+      addObject(player, 100, 400);
 
       // start playing music
       Mayflower.playMusic("src/sounds/music/music.mp3");
