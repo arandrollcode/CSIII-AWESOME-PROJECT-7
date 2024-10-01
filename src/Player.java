@@ -26,6 +26,26 @@ public class Player extends MovableAnimatedActor {
       lives -= amount;
    }
 
+   // Checks if player is dead
+   public void act() {
+      super.act();
+      if (isDead() && lives > 0) {
+         // Respawn at bottom and reset platforms
+         respawn();
+         Platform.setMovedDown(0);
+      } else if (lives <= 0) {
+         // Set to game over screen when out of lives
+         Mayflower.setWorld(new DeathScreen());
+      }
+      updateText();
+   }
+
+   public void respawn() {
+      setDead(false);
+      setLocation(300, 400);
+      lives--;
+   }
+
    // Initializes walking/idle/fall animations
    private void initializeAnimations() {
       String[] frames = new String[10];
@@ -35,7 +55,6 @@ public class Player extends MovableAnimatedActor {
       }
       int WIDTH = 45;
       int HEIGHT = 74;
-
 
       walkRight = new Animation(50000000, frames);
       walkRight.scale(100, 87);
@@ -74,25 +93,5 @@ public class Player extends MovableAnimatedActor {
       setIdleLeftAnimation(idleLeft);
       setFallRightAnimation(fallRight);
       setFallLeftAnimation(fallLeft);
-   }
-
-   // Checks if player is dead
-   public void act() {
-      super.act();
-      if (isDead() && lives > 0) {
-         // Respawn at bottom and reset platforms
-         respawn();
-         Platform.setMovedDown(0);
-      } else if (lives <= 0) {
-         // Set to game over screen when out of lives
-         Mayflower.setWorld(new DeathScreen());
-      }
-      updateText();
-   }
-
-   public void respawn() {
-      setDead(false);
-      setLocation(300, 400);
-      lives--;
    }
 }
