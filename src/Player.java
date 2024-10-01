@@ -92,7 +92,7 @@ public class Player extends MovableAnimatedActor {
 
    public void respawn() {
       setDead(false);
-      setLocation(100, 400);
+      setLocation(300, 400);
       lives--;
    }
 }

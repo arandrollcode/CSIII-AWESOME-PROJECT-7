@@ -16,7 +16,7 @@ public class GravityActor extends Actor {
          setLocation((double) getX(), (double) getY() - yVelocity);
       }
       pastLimit = false;
-      if (getY() < 100) {
+      if (getY() < 100 && Platform.getIsMovingDown()) {
          setLocation(getX(), getY() - yVelocity);
          pastLimit = true;
       }
