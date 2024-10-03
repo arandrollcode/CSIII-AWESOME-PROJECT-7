@@ -36,6 +36,8 @@ public class MovableAnimatedActor extends AnimatedActor {
          if (getYVelocity() == 0.0) {
             setYVelocity(-9.6);
          }
+      } else if (Mayflower.isKeyDown(Keyboard.KEY_DOWN) && y + h < 600) {
+         setYVelocity(getYVelocity() + 0.4);
       }
 
       // Checks direction when falling
