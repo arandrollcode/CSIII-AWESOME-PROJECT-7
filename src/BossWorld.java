@@ -26,7 +26,7 @@ public class BossWorld extends World {
         tiles[3][7] = Tiles.BLOCK;
         tiles[4][1] = Tiles.BLOCK;
         tiles[4][6] = Tiles.BLOCK;
-        // tiles[4][7] = Tiles.HAZARD;
+        tiles[4][7] = Tiles.HAZARD;
 
         for (int i = 0; i < tiles.length; i++) {
             for (int j = 0; j < tiles[0].length; j++) {
@@ -52,7 +52,7 @@ public class BossWorld extends World {
                     tileObject = boss;
                 } else if (tiles[i][j] == Tiles.HAZARD) {
                     tileObject = new Hazard(1.2, 1.2);
-                 }
+                }
 
                 if (tileObject != null)
                     addObject(tileObject, j * 100, (i * 100));
