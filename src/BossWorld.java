@@ -51,7 +51,7 @@ public class BossWorld extends World {
                     boss = new Boss();
                     tileObject = boss;
                 } else if (tiles[i][j] == Tiles.HAZARD) {
-                    tileObject = new Hazard(1.2, 1.2);
+                    tileObject = new Hazard(1.1, 1.1);
                 }
 
                 if (tileObject != null)
