@@ -7,7 +7,7 @@ public class Hazard extends Actor {
 
     public Hazard(double vxMax, double vyMax) {
         player = StartScreen.getPlayer();
-        MayflowerImage image = new MayflowerImage("img/Object/BlackHole.png");
+        MayflowerImage image = new MayflowerImage("img\\Object\\BlackHole.png");
         image.crop(0, 12, 75, 50);
         setImage(image);
         vx = 0;

@@ -29,7 +29,7 @@ public class World3 extends World {
       tiles[4][3] = Tiles.MOVINGBLOCK;
       tiles[1][1] = Tiles.FINISH;
 
-      tiles[15][6] = Tiles.HAZARD;
+      tiles[14][0] = Tiles.HAZARD;
 
       // randomize the positions of the coins on the map
       for (int numCoins = 10; numCoins > 0; numCoins--) {

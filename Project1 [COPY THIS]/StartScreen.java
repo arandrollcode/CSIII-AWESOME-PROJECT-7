@@ -9,9 +9,15 @@ public class StartScreen extends World {
 
     // When enter is pressed, go from starting screen to world 1
     public void act() {
-        if (Mayflower.isKeyDown(Keyboard.KEY_ENTER)) {
+        if (Mayflower.isKeyPressed(Keyboard.KEY_ENTER)) {
             playerCharacter = new Player();
             Mayflower.setWorld(new World1());
+        }
+
+        // Developer hacks
+        if (Mayflower.isKeyPressed(Keyboard.KEY_LSHIFT)) {
+            playerCharacter = new Player();
+            Mayflower.setWorld(new World3());
         }
     }
 

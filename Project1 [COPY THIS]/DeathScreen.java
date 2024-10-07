@@ -9,7 +9,7 @@ public class DeathScreen extends World {
     }
 
     public void act() {
-        if (Mayflower.isKeyDown(Keyboard.KEY_ENTER)) {
+        if (Mayflower.isKeyPressed(Keyboard.KEY_ENTER)) {
             Mayflower.setWorld(new StartScreen());
         }
     }

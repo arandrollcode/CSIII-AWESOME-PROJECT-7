@@ -15,7 +15,7 @@ public class MovableAnimatedActor extends AnimatedActor {
 
       int x = getX(), y = getY();
       int w = getWidth(), h = getHeight();
-      int xVelocity = 3;
+      double xVelocity = 3.5;
 
       // Movement based on key pressed
       double newX = x, newY = y;
@@ -36,6 +36,8 @@ public class MovableAnimatedActor extends AnimatedActor {
          if (getYVelocity() == 0.0) {
             setYVelocity(-9.6);
          }
+      } else if (Mayflower.isKeyDown(Keyboard.KEY_DOWN) && y + h < 600) {
+         setYVelocity(getYVelocity() + 0.4);
       }
 
       // Checks direction when falling
