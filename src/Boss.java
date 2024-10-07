@@ -43,11 +43,12 @@ public class Boss extends Actor {
             } else {
                 setImage(normal);
             }
-            if (Integer.signum(nextXLocation - getX()) == 0)
-                nextXLocation = (int) (Math.random() * 200) + 200;
+            if (Integer.signum(nextXLocation - getX()) == 0) // if next location = current location
+                nextXLocation = (int) (Math.random() * 200) + 200; // get new X location
             else
-                setLocation(getX() + Integer.signum(nextXLocation - getX()), getY());
-            if (Integer.signum(nextYLocation - getY()) == 0)
+                setLocation(getX() + Integer.signum(nextXLocation - getX()), getY()); // increment boss to new location by 1 or -1
+
+            if (Integer.signum(nextYLocation - getY()) == 0) // same but for y location
                 nextYLocation = (int) (Math.random() * 300);
             else
 
